@@ -16,7 +16,7 @@ void main() async {
   Get.put(CoffeeController());
   runApp(MyApp());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.pink.shade50,
+   // statusBarColor: Colors.pink.shade50,
   ));
 }
 

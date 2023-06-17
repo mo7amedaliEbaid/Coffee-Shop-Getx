@@ -10,10 +10,9 @@ import '../../utils/global_constants.dart';
 import '../widgets/animated_searchbar.dart';
 import '../widgets/main_drawer.dart';
 
-
 class DashboardCoffeeScreen extends StatelessWidget {
   static const routeNamed = '/dashboard';
-  final String title="Coffee";
+  final String title = "Coffee";
   final CoffeeController _coffeeController = Get.find();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final box = GetStorage();
@@ -24,7 +23,7 @@ class DashboardCoffeeScreen extends StatelessWidget {
     //  order = (box.read('Order'));
     order = Order();
     return Scaffold(
-      backgroundColor: Colors.pink.shade50,
+      backgroundColor: coffeeback,
       key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.pink.shade50,
@@ -45,7 +44,7 @@ class DashboardCoffeeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-greatday(context, title,Colors.brown),
+            greatday(context, title, Colors.brown),
             kSizedBox,
             Expanded(
               child: Obx(
