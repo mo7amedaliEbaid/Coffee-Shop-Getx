@@ -8,6 +8,7 @@ import 'package:get/get_core/src/get_main.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
+  static const routeName = '/homescreen';
   final String title = "A Drink";
   final String cat1 = "Coffee";
   final String cat2 = "Juice";

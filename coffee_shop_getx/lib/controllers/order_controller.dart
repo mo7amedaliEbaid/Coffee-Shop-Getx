@@ -126,7 +126,8 @@ class OrderController extends GetxController {
   saveOrderToStorage(Order order) {
     final _box = GetStorage();
     _box.write('Order', order);
-    print(_box.read('Order'));
+    Order myorder=_box.read('Order');
+    print(myorder.coffee?.name.toString());
   }
 
   @override

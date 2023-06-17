@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -22,13 +21,19 @@ class OrderScreen extends StatelessWidget {
               floating: true,
               title: Text(
                 _orderController.getCoffee.name,
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headline4?.copyWith(
+                  color: Colors.brown,
+                  backgroundColor: Colors.white70
+                ),
               ),
               centerTitle: true,
               snap: true,
-              flexibleSpace: Image.network(
-                'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-                fit: BoxFit.cover,
+              flexibleSpace: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage(_orderController.getCoffee.icon,
+                    ),fit: BoxFit.fill,)
+                ),
+
               ),
             ),
             SliverFillRemaining(
@@ -90,11 +95,11 @@ class OrderScreen extends StatelessWidget {
               ),
             ],
           ),
-         // splashColor: Theme.of(context).accentColor,
-        //  color: Theme.of(context).primaryColor,
-        //  shape: RoundedRectangleBorder(
-         //   borderRadius: BorderRadius.circular(10),
-       //   ),
+          // splashColor: Theme.of(context).accentColor,
+          //  color: Theme.of(context).primaryColor,
+          //  shape: RoundedRectangleBorder(
+          //   borderRadius: BorderRadius.circular(10),
+          //   ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:coffee_shop_get/ui/screens/dashboard_coffeescreen.dart';
+import 'package:coffee_shop_get/ui/screens/home_screen.dart';
 import 'package:coffee_shop_get/ui/screens/order_screen.dart';
 import 'package:coffee_shop_get/ui/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -58,8 +59,8 @@ class MyApp extends StatelessWidget {
           page: () => SplashScreen(),
         ),
         GetPage(
-          name: DashboardCoffeeScreen.routeNamed,
-          page: () => DashboardCoffeeScreen(),
+          name: HomeScreen.routeName,
+          page: () => HomeScreen(),
         ),
         GetPage(
           name: OrderScreen.routeName,
