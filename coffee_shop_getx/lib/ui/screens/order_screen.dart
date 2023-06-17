@@ -73,7 +73,7 @@ class OrderScreen extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         height: 60,
-        child: RaisedButton(
+        child: ElevatedButton(
           onPressed: () {
             _orderController.addToCart();
           },
@@ -90,11 +90,11 @@ class OrderScreen extends StatelessWidget {
               ),
             ],
           ),
-          splashColor: Theme.of(context).accentColor,
-          color: Theme.of(context).primaryColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
+         // splashColor: Theme.of(context).accentColor,
+        //  color: Theme.of(context).primaryColor,
+        //  shape: RoundedRectangleBorder(
+         //   borderRadius: BorderRadius.circular(10),
+       //   ),
         ),
       ),
     );
