@@ -1,4 +1,3 @@
-import 'package:coffee_shop_get/ui/controllers/splash_controller.dart';
 import 'package:coffee_shop_get/ui/screens/dashboard_coffeescreen.dart';
 import 'package:coffee_shop_get/ui/screens/order_screen.dart';
 import 'package:coffee_shop_get/ui/screens/splash_screen.dart';
@@ -7,7 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'ui/controllers/coffee_controller.dart';
+import 'controllers/coffee_controller.dart';
+import 'controllers/splash_controller.dart';
+
 
 void main() async {
   await GetStorage.init();
@@ -27,8 +28,8 @@ class MyApp extends StatelessWidget {
       title: 'Coffee Shop',
       theme: ThemeData(
         primarySwatch: Colors.pink,
-        accentColor: Colors.amber,
-        canvasColor: Colors.pink.shade50,
+       // accentColor: Colors.amber,
+       // canvasColor: Colors.pink.shade50,
         /*textTheme: TextTheme(
           headline6: GoogleFonts.montserrat(
             color: Colors.black,

@@ -2,7 +2,8 @@
 import 'dart:async';
 import 'package:get/get.dart';
 
-import '../screens/dashboard_coffeescreen.dart';
+import '../ui/screens/dashboard_coffeescreen.dart';
+
 
 class SplashController extends GetxController{
 

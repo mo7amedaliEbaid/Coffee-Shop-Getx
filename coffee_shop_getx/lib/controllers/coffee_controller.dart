@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
+
 import '../models/Coffee.dart';
-import '../screens/order_screen.dart';
+import '../ui/screens/order_screen.dart';
 class CoffeeController extends GetxController {
   var _coffeeList = <Coffee>[].obs;
 

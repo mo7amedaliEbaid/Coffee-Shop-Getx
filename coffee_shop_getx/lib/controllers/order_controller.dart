@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 
 import '../models/Coffee.dart';
 import '../models/Order.dart';
-import '../screens/dashboard_coffeescreen.dart';
+import '../ui/screens/dashboard_coffeescreen.dart';
 
 class OrderController extends GetxController {
   late Order _order;
@@ -80,12 +80,12 @@ class OrderController extends GetxController {
   }
 
   addToCart() {
-    if (_selectedCupSize.value == 2) {
+  /*  if (_selectedCupSize.value == 2) {
      // _totalPrice += 5 ;
     }
     if (_selectedCupSize.value == 3) {
      // _totalPrice += 10;
-    }
+    }*/
     if (_quantity.value > 0 && _totalPrice.value != 0) {
       _order = Order(
         coffee: _coffee,

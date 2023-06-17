@@ -1,17 +1,19 @@
-
+import 'package:coffee_shop_get/ui/screens/cart_screen.dart';
+import 'package:coffee_shop_get/ui/widgets/greatday_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../controllers/coffee_controller.dart';
+import '../../models/Order.dart';
 import '../../utils/global_constants.dart';
-import '../../widgets/animated_searchbar.dart';
-import '../../widgets/main_drawer.dart';
-import '../controllers/coffee_controller.dart';
-import '../models/Order.dart';
+import '../widgets/animated_searchbar.dart';
+import '../widgets/main_drawer.dart';
+
 
 class DashboardCoffeeScreen extends StatelessWidget {
   static const routeNamed = '/dashboard';
-
+  final String title="Coffee";
   final CoffeeController _coffeeController = Get.find();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final box = GetStorage();
@@ -19,9 +21,10 @@ class DashboardCoffeeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  //  order = (box.read('Order'));
-    order=Order();
+    //  order = (box.read('Order'));
+    order = Order();
     return Scaffold(
+      backgroundColor: Colors.pink.shade50,
       key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.pink.shade50,
@@ -42,27 +45,7 @@ class DashboardCoffeeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: RichText(
-                text: TextSpan(
-                    text: 'It\'s Great ',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline5
-                        ?.copyWith(letterSpacing: 2.0, fontSize: 36.0),
-                    children: [
-                      TextSpan(
-                        text: 'Day For Coffee.',
-                        style: Theme.of(context).textTheme.headline5?.copyWith(
-                              color: Colors.brown,
-                              letterSpacing: 2.0,
-                              fontSize: 36.0,
-                            ),
-                      ),
-                    ]),
-              ),
-            ),
+greatday(context, title,Colors.brown),
             kSizedBox,
             Expanded(
               child: Obx(
@@ -117,7 +100,8 @@ class DashboardCoffeeScreen extends StatelessWidget {
           ? Container()
           : FloatingActionButton(
               onPressed: () {
-                print(order.totalPrice);
+                print(box.read('Order'));
+                Get.to(() => CartScreen());
               },
               child: Icon(
                 Icons.add_shopping_cart_rounded,
