@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 
-import '../../utils/common_constants.dart';
+import '../../utils/global_constants.dart';
 import '../controllers/order_controller.dart';
 
 class OrderScreen extends StatelessWidget {

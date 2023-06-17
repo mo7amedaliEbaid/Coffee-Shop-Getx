@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../../utils/common_constants.dart';
+import '../../utils/global_constants.dart';
 import '../../widgets/animated_searchbar.dart';
 import '../../widgets/main_drawer.dart';
 import '../controllers/coffee_controller.dart';

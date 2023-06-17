@@ -2,6 +2,6 @@
 
 import 'package:flutter/cupertino.dart';
 
-const kSizedBox = SizedBox(
+SizedBox kSizedBox = SizedBox(
   height: 10,
 );

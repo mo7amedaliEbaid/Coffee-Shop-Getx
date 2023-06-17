@@ -1,25 +1,8 @@
+import 'package:coffee_shop_get/utils/app_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
-  var _list = [
-    {
-      'title': 'Home',
-      'icon': Icons.home_filled,
-    },
-    {
-      'title': 'My Orders',
-      'icon': Icons.bookmark_border,
-    },
-    {
-      'title': 'My Profile',
-      'icon': Icons.person_pin,
-    },
-    {
-      'title': 'Settings',
-      'icon': Icons.settings,
-    },
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,18 +15,17 @@ class MainDrawer extends StatelessWidget {
               separatorBuilder: (_, __) => Divider(),
               itemBuilder: (ctx, index) => ListTile(
                 title: Text(
-                  "",
-                //  _list[index]['title'],
+                 // "",
+                  Appconstants.titleslist[index]['title'].toString(),
                   style: Theme.of(context).textTheme.headline6,
-
                 ),
                 trailing: Icon(
-                 // _list[index]['icon'],
-                  Icons.add_alert,
+                 Appconstants.icons[index]['icon'],
+                 // Icons.add_alert,
                   color: Colors.brown,
                 ),
               ),
-              itemCount: _list.length,
+              itemCount: Appconstants.titleslist.length,
             ),
           ),
         ],
