@@ -1,3 +1,5 @@
+import 'package:coffee_shop_get/controllers/cart_controller.dart';
+import 'package:coffee_shop_get/controllers/order_controller.dart';
 import 'package:coffee_shop_get/ui/screens/dashboard_coffeescreen.dart';
 import 'package:coffee_shop_get/ui/screens/home_screen.dart';
 import 'package:coffee_shop_get/ui/screens/order_screen.dart';
@@ -14,7 +16,9 @@ import 'controllers/splash_controller.dart';
 void main() async {
   await GetStorage.init();
   Get.put(SplashController());
-  Get.put(CoffeeController());
+  Get.put(CoffeeController(),permanent: true);
+ /* Get.put(CartController());
+  Get.put(OrderController());*/
   runApp(MyApp());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
    // statusBarColor: Colors.pink.shade50,

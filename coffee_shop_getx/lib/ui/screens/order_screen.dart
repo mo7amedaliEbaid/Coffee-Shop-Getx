@@ -8,7 +8,7 @@ import '../../utils/global_constants.dart';
 
 class OrderScreen extends StatelessWidget {
   static const routeName = '/orderscreen';
-  OrderController _orderController = Get.put(OrderController());
+  OrderController _orderController = Get.put<OrderController>(OrderController(),permanent: true);
 
   @override
   Widget build(BuildContext context) {

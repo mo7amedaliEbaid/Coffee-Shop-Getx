@@ -13,15 +13,16 @@ import '../widgets/main_drawer.dart';
 class DashboardCoffeeScreen extends StatelessWidget {
   static const routeNamed = '/dashboard';
   final String title = "Coffee";
-  final CoffeeController _coffeeController = Get.find();
+   CoffeeController _coffeeController = Get.put<CoffeeController>(CoffeeController(),permanent: true);
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final box = GetStorage();
-  late Order order;
+
 
   @override
   Widget build(BuildContext context) {
+    Order? order=(box.read('Order'))??Order();
     //  order = (box.read('Order'));
-    order = Order();
+  //  order = Order();
     return Scaffold(
       backgroundColor: coffeeback,
       key: _scaffoldKey,

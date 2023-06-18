@@ -4,17 +4,17 @@ import 'package:get_storage/get_storage.dart';
 import '../models/Order.dart';
 
 class CartController extends GetxController {
-  Order myorder = Order();
+  Order? myorder = Order();
 
-  Order getcart() {
+  Order? getcart() {
     final _box = GetStorage();
     myorder = _box.read('Order');
-   // print(myorder.coffee?.name.toString());
-    if (myorder==null){
+    print(myorder?.coffee?.name.toString());
+  /*  if (myorder==null){
       throw Exception("order isnt added");
-    }else{
+    }else{*/
       return myorder;
-    }
+   // }
 
   }
 
