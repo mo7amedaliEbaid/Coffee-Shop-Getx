@@ -8,7 +8,7 @@ import '../../utils/global_constants.dart';
 
 class OrderScreen extends StatelessWidget {
   static const routeName = '/orderscreen';
-  OrderController _orderController = Get.put<OrderController>(OrderController(),permanent: true);
+  OrderController _orderController = Get.put<OrderController>(OrderController());
 
   @override
   Widget build(BuildContext context) {
@@ -73,36 +73,39 @@ class OrderScreen extends StatelessWidget {
   }
 
   Widget buildAddToCartButton(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: SizedBox(
-        width: double.infinity,
-        height: 60,
-        child: ElevatedButton(
-          onPressed: () {
-            _orderController.addToCart();
-          },
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                Icons.add_shopping_cart,
-                color: Colors.white,
-              ),
-              Text(
-                'Add to Cart',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-            ],
+    return GetBuilder<OrderController>(builder: (_){
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SizedBox(
+          width: double.infinity,
+          height: 60,
+          child: ElevatedButton(
+            onPressed: () {
+              _orderController.addToCart();
+            },
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.add_shopping_cart,
+                  color: Colors.white,
+                ),
+                Text(
+                  'Add to Cart',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+              ],
+            ),
+            // splashColor: Theme.of(context).accentColor,
+            //  color: Theme.of(context).primaryColor,
+            //  shape: RoundedRectangleBorder(
+            //   borderRadius: BorderRadius.circular(10),
+            //   ),
           ),
-          // splashColor: Theme.of(context).accentColor,
-          //  color: Theme.of(context).primaryColor,
-          //  shape: RoundedRectangleBorder(
-          //   borderRadius: BorderRadius.circular(10),
-          //   ),
         ),
-      ),
-    );
+      );
+    });
+
   }
 
   Widget buildSugarWidget(BuildContext context) {

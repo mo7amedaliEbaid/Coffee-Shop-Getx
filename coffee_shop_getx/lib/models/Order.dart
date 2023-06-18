@@ -2,7 +2,7 @@ import 'Coffee.dart';
 
 class Order {
   final String? orderId;
-  final Coffee? coffee;
+  final Drink? coffee;
   final int? quantity;
   final String? cupsize;
   final int? sugarcbes;

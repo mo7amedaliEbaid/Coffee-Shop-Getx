@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:coffee_shop_get/ui/screens/home_screen.dart';
 import 'package:get/get.dart';
 
-import '../ui/screens/dashboard_coffeescreen.dart';
+import '../ui/screens/coffee_screen.dart';
 
 
 class SplashController extends GetxController{

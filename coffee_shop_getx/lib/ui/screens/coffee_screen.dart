@@ -1,3 +1,4 @@
+import 'package:coffee_shop_get/controllers/cart_controller.dart';
 import 'package:coffee_shop_get/ui/screens/cart_screen.dart';
 import 'package:coffee_shop_get/ui/widgets/greatday_widget.dart';
 import 'package:flutter/material.dart';
@@ -10,17 +11,18 @@ import '../../utils/global_constants.dart';
 import '../widgets/animated_searchbar.dart';
 import '../widgets/main_drawer.dart';
 
-class DashboardCoffeeScreen extends StatelessWidget {
+class CoffeeScreen extends StatelessWidget {
   static const routeNamed = '/dashboard';
   final String title = "Coffee";
-   CoffeeController _coffeeController = Get.put<CoffeeController>(CoffeeController(),permanent: true);
+   CoffeeController _coffeeController = Get.put<CoffeeController>(CoffeeController());
+  CartController _cartcontroller = Get.put<CartController>(CartController());
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final box = GetStorage();
 
 
   @override
   Widget build(BuildContext context) {
-    Order? order=(box.read('Order'))??Order();
+   // Order? order=(box.read('Order'))??Order();
     //  order = (box.read('Order'));
   //  order = Order();
     return Scaffold(
@@ -96,9 +98,8 @@ class DashboardCoffeeScreen extends StatelessWidget {
       ),
       drawerScrimColor: Colors.black54,
       drawer: MainDrawer(),
-      floatingActionButton: order == null
-          ? Container()
-          : FloatingActionButton(
+      floatingActionButton: GetBuilder<CartController>(builder: (_){
+            return _cartcontroller.myorder==null? Container():FloatingActionButton(
               onPressed: () {
                 print(box.read('Order'));
                 Get.to(() => CartScreen());
@@ -108,7 +109,9 @@ class DashboardCoffeeScreen extends StatelessWidget {
                 color: Colors.white,
               ),
               backgroundColor: Colors.pink.shade300,
-            ),
+            );
+      })
+
     );
   }
 }

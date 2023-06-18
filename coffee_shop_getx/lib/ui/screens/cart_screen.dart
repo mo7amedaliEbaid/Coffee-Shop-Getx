@@ -5,21 +5,22 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../controllers/cart_controller.dart';
 class CartScreen extends StatelessWidget {
    CartScreen({Key? key}) : super(key: key);
-   CartController _cartController = Get.put<CartController>(CartController(),permanent: true);
+   CartController _cartController = Get.put<CartController>(CartController());
   @override
   Widget build(BuildContext context) {
-
-
     return GetBuilder<CartController>(builder: (_) {
      return Scaffold(
         appBar: AppBar(
           title: Text("Cart"),
         ),
         body: Center(
-          child: Text(_cartController.myorder?.coffee?.name.toString() ?? ""),
+          child: Text(_cartController.myorder?.coffee?.name.toString() ?? "",style: TextStyle(
+            fontSize: 50,
+            color: Colors.black
+          ),),
         ),
       );
-    });
+   });
 
   }
 }

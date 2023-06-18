@@ -1,4 +1,6 @@
-import 'package:coffee_shop_get/ui/screens/dashboard_coffeescreen.dart';
+import 'package:coffee_shop_get/ui/screens/coffee_screen.dart';
+import 'package:coffee_shop_get/ui/screens/juice_screen.dart';
+import 'package:coffee_shop_get/ui/screens/tea_screen.dart';
 import 'package:coffee_shop_get/ui/widgets/greatday_widget.dart';
 import 'package:coffee_shop_get/utils/app_constants.dart';
 import 'package:coffee_shop_get/utils/global_constants.dart';
@@ -41,17 +43,27 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: MediaQuery.of(context).size.height*.08,),
             InkWell(
               onTap: (){
-                Get.to(() => DashboardCoffeeScreen());
+                Get.to(() => CoffeeScreen());
               },
               child: buildcategorytile(context, Appconstants.catsimgs[0], cat1,
                   coffeestyle!, coffeeback),
             ),
             kSizedBox,
-            buildcategorytile(context, Appconstants.catsimgs[1], cat2,
-                juicestyle!, Colors.orangeAccent.shade100),
+            InkWell(
+              onTap: (){
+                Get.to(() => JuiceScreen());
+              },
+              child: buildcategorytile(context, Appconstants.catsimgs[1], cat2,
+                  juicestyle!, Colors.orangeAccent.shade100),
+            ),
             kSizedBox,
-            buildcategorytile(context, Appconstants.catsimgs[2], cat3,
-                teastyle!, Colors.brown.shade200),
+            InkWell(
+              onTap: (){
+                Get.to(() => TeaScreen());
+              },
+              child: buildcategorytile(context, Appconstants.catsimgs[2], cat3,
+                  teastyle!, Colors.brown.shade200),
+            ),
           ],
         ),
       ),

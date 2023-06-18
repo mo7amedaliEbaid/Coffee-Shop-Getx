@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 
 import '../models/Coffee.dart';
 import '../models/Order.dart';
-import '../ui/screens/dashboard_coffeescreen.dart';
+import '../ui/screens/coffee_screen.dart';
 
 class OrderController extends GetxController {
   late Order _order;
@@ -19,7 +19,7 @@ class OrderController extends GetxController {
   var _selectedSugarCubes = 1.obs;
 
   get getSelectedSugarCubes => _selectedSugarCubes.value;
-  late Coffee _coffee;
+  late Drink _coffee;
 
   var _quantity = 1.obs;
 
@@ -27,7 +27,7 @@ class OrderController extends GetxController {
 
   get getTotalPrice => _totalPrice.value;
 
-  Coffee get getCoffee => _coffee;
+  Drink get getCoffee => _coffee;
 
   setSelectedCupSize(val) {
     _selectedCupSize.value = val;
@@ -114,7 +114,7 @@ class OrderController extends GetxController {
         showSuccessSnackBar(
           'Order Added Successfully',
         );
-        Get.offNamed(DashboardCoffeeScreen.routeNamed);
+        Get.offNamed(CoffeeScreen.routeNamed);
       } else {
         showErrorSnackBar('Order not saved, Try again later!');
       }
