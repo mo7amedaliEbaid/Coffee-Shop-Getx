@@ -8,13 +8,12 @@ import 'package:intl/intl.dart';
 
 import '../../controllers/cart_controller.dart';
 
-
-
 class CartItemCard extends StatelessWidget {
   late CartController controller;
   late OrderController _ordercontroller;
   late int index;
   final Drink drink;
+
   CartItemCard({
     Key? key,
     required this.index,
@@ -25,9 +24,9 @@ class CartItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     controller = Get.find<CartController>();
     _ordercontroller = Get.find<OrderController>();
-Size size=MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height*.15,
+      height: size.height * .15,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,7 +64,7 @@ Size size=MediaQuery.of(context).size;
             ),
           ),
           InkWell(
-            onTap: (){
+            onTap: () {
               _ordercontroller.removeSelectedItemFromCart(drink.id);
             },
             child: Container(
@@ -75,7 +74,11 @@ Size size=MediaQuery.of(context).size;
                 color: Colors.red,
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.clear,size: 20,color: Colors.white,),
+              child: Icon(
+                Icons.clear,
+                size: 20,
+                color: Colors.white,
+              ),
             ),
           )
         ],
@@ -101,8 +104,7 @@ Size size=MediaQuery.of(context).size;
         ),
         Text(drink.qty.toString()),
         IconButton(
-          onPressed: () =>
-              controller.increaseQtyOfSelectedItemInCart(index),
+          onPressed: () => controller.increaseQtyOfSelectedItemInCart(index),
           icon: Icon(Icons.add),
         )
       ],

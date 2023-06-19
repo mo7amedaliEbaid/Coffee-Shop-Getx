@@ -29,7 +29,6 @@ class MainDrawer extends StatelessWidget {
                 ),
                 trailing: Icon(
                  Appconstants.icons[index]['icon'],
-                 // Icons.add_alert,
                   color: Colors.brown,
                 ),
               ),

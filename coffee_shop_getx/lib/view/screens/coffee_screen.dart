@@ -2,30 +2,21 @@ import 'package:coffee_shop_get/controllers/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
 import '../../consts/global_constants.dart';
 import '../../controllers/coffee_controller.dart';
-import '../../models/order_model.dart';
-import '../../view/screens/cart_screen.dart';
-import '../widgets/animated_searchbar_widget.dart';
 import '../widgets/greatday_widget.dart';
 import '../widgets/drawer_widget.dart';
 
 class CoffeeScreen extends StatelessWidget {
   final String title = "Coffee";
-  late CoffeeController _coffeeController ;
-  //CartController _cartcontroller = Get.put<CartController>(CartController());
+  late CoffeeController _coffeeController;
+
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final box = GetStorage();
-
 
   @override
   Widget build(BuildContext context) {
     _coffeeController = Get.find<CoffeeController>();
-
-    // Order? order=(box.read('Order'))??Order();
-    //  order = (box.read('Order'));
-  //  order = Order();
     return Scaffold(
       backgroundColor: authbackcolor,
       key: _scaffoldKey,
@@ -42,7 +33,7 @@ class CoffeeScreen extends StatelessWidget {
           ),
         ),
         actions: [
-         // AnimatedSearchBar(),
+          // AnimatedSearchBar(),
         ],
       ),
       body: SafeArea(
@@ -86,33 +77,11 @@ class CoffeeScreen extends StatelessWidget {
                 ),
               ),
             ),
-           /* Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: double.infinity,
-                height: 10,
-                color: Colors.pink.shade50,
-              ),
-            ),*/
           ],
         ),
       ),
       drawerScrimColor: Colors.black54,
       drawer: MainDrawer(),
-     /* floatingActionButton: GetBuilder<CartController>(builder: (_){
-            return _cartcontroller.myorder==null? Container():FloatingActionButton(
-              onPressed: () {
-                print(box.read('Order'));
-                Get.to(() => CartScreen());
-              },
-              child: Icon(
-                Icons.add_shopping_cart_rounded,
-                color: Colors.white,
-              ),
-              backgroundColor: Colors.pink.shade300,
-            );*/
-    //  })
-
     );
   }
 }

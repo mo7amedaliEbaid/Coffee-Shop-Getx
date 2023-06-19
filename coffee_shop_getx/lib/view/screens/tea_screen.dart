@@ -8,21 +8,12 @@ import '../widgets/drawer_widget.dart';
 
 class TeaScreen extends StatelessWidget {
   final String title = "Tea";
- // TeaController _teaController = Get.put<TeaController>(TeaController());
-//  CartController _cartcontroller = Get.put<CartController>(CartController());
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-  late TeaController _teaController ;
-
-  // final box = GetStorage();
-
+  late TeaController _teaController;
 
   @override
   Widget build(BuildContext context) {
     _teaController = Get.find<TeaController>();
-
-    // Order? order=(box.read('Order'))??Order();
-    //  order = (box.read('Order'));
-    //  order = Order();
     return Scaffold(
       backgroundColor: Colors.brown.shade100,
       key: _scaffoldKey,
@@ -49,7 +40,7 @@ class TeaScreen extends StatelessWidget {
             kSizedBox,
             Expanded(
               child: Obx(
-                    () => ListView.separated(
+                () => ListView.separated(
                   itemBuilder: (ctx, i) => ListTile(
                     onTap: () {
                       _teaController.navigateToOrderScreen(i);
@@ -57,9 +48,9 @@ class TeaScreen extends StatelessWidget {
                     title: Text(
                       _teaController.getteaList[i].name,
                       style: Theme.of(context).textTheme.headline6?.copyWith(
-                        fontSize: 24.0,
-                        letterSpacing: 2.0,
-                      ),
+                            fontSize: 24.0,
+                            letterSpacing: 2.0,
+                          ),
                     ),
                     subtitle: Text(
                       '\$ ${_teaController.getteaList[i].price.toString()}',
@@ -70,8 +61,8 @@ class TeaScreen extends StatelessWidget {
                       child: Text(
                         '${i + 1}',
                         style: Theme.of(context).textTheme.headline6?.copyWith(
-                          color: Colors.white,
-                        ),
+                              color: Colors.white,
+                            ),
                       ),
                     ),
                     trailing: Icon(
@@ -83,33 +74,11 @@ class TeaScreen extends StatelessWidget {
                 ),
               ),
             ),
-           /* Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: double.infinity,
-                height: 10,
-                color: Colors.pink.shade50,
-              ),
-            ),*/
           ],
         ),
       ),
       drawerScrimColor: Colors.black54,
       drawer: MainDrawer(),
-      /*floatingActionButton: GetBuilder<CartController>(builder: (_){
-          return Container();*///_cartcontroller.myorder==null? Container():FloatingActionButton(
-      //   onPressed: () {
-      //    print(box.read('Order'));
-      //    Get.to(() => CartScreen());
-      //  },
-      // child: Icon(
-      //  Icons.add_shopping_cart_rounded,
-      // color: Colors.white,
-      // ),
-      //  backgroundColor: Colors.pink.shade300,
-      //   );
-      //    })
-
     );
   }
 }

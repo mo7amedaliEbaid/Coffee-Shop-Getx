@@ -6,21 +6,13 @@ import '../widgets/greatday_widget.dart';
 import '../widgets/drawer_widget.dart';
 
 class JuiceScreen extends StatelessWidget {
- // static const routeNamed = '/juice';
   final String title = "Juice";
- // JuiceController _juiceController = Get.put<JuiceController>(JuiceController());
-//  CartController _cartcontroller = Get.put<CartController>(CartController());
   final _scaffoldKey = GlobalKey<ScaffoldState>();
- // final box = GetStorage();
   late JuiceController _juiceController ;
 
   @override
   Widget build(BuildContext context) {
     _juiceController = Get.find<JuiceController>();
-
-    // Order? order=(box.read('Order'))??Order();
-    //  order = (box.read('Order'));
-    //  order = Order();
     return Scaffold(
         backgroundColor: Colors.orangeAccent.shade100,
         key: _scaffoldKey,
@@ -81,32 +73,11 @@ class JuiceScreen extends StatelessWidget {
                   ),
                 ),
               ),
-             /* Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  width: double.infinity,
-                  height: 10,
-                  color: Colors.pink.shade50,
-                ),
-              ),*/
             ],
           ),
         ),
         drawerScrimColor: Colors.black54,
         drawer: MainDrawer(),
-        /*floatingActionButton: GetBuilder<CartController>(builder: (_){
-          return Container();*///_cartcontroller.myorder==null? Container():FloatingActionButton(
-         //   onPressed: () {
-          //    print(box.read('Order'));
-          //    Get.to(() => CartScreen());
-          //  },
-           // child: Icon(
-            //  Icons.add_shopping_cart_rounded,
-             // color: Colors.white,
-           // ),
-          //  backgroundColor: Colors.pink.shade300,
-       //   );
-    //    })
 
     );
   }

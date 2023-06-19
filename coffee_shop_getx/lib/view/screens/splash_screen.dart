@@ -23,17 +23,13 @@ class SplashScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          /*Align(
+          Align(
             alignment: Alignment.center,
-            child: Container(
-              height: 150,
-              width: 120,
-              child: Image.asset(
-                'images/splash2.jpeg',
-                fit: BoxFit.fill,
-              ),
-            ),
-          ),*/
+            child: CircularProgressIndicator(
+              color: Colors.white,
+            )
+
+          ),
         ],
       ),
     ));

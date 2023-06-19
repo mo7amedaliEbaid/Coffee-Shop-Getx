@@ -5,8 +5,6 @@ import 'package:intl/intl.dart';
 
 import '../../controllers/cart_controller.dart';
 
-
-
 class CartScreen extends StatelessWidget {
   late CartController controller;
 
@@ -21,62 +19,62 @@ class CartScreen extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.all(20.0),
         child: Obx(
-              () => controller.cart.isEmpty
+          () => controller.cart.isEmpty
               ? const Center(
-            child: Text("Your cart is empty"),
-          )
+                  child: Text("Your cart is empty"),
+                )
               : Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Column(
-              children: [
-                Expanded(
-                  child: ListView.separated(
-                    itemCount: controller.cart.length,
-                    separatorBuilder: (_, __) => Divider(),
-                    itemBuilder: (context, index) {
-                      return CartItemCard(
-                        drink: controller.cart[index],
-                        index: index,
-                      );
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(
-                        "Grand Total : \$. ${NumberFormat.currency(
-                          decimalDigits: 0,
-                          symbol: '',
-                        ).format(
-                          controller.grandTotal.value,
-                        )}",
+                      Expanded(
+                        child: ListView.separated(
+                          itemCount: controller.cart.length,
+                          separatorBuilder: (_, __) => Divider(),
+                          itemBuilder: (context, index) {
+                            return CartItemCard(
+                              drink: controller.cart[index],
+                              index: index,
+                            );
+                          },
+                        ),
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          _confirmationDialog();
-                        },
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.yellow),
-                        child: Container(
-                          width: double.infinity,
-                          child: Center(
-                            child: Text(
-                              "Proceed",
-                              style: TextStyle(color: Colors.black),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Grand Total : \$. ${NumberFormat.currency(
+                                decimalDigits: 0,
+                                symbol: '',
+                              ).format(
+                                controller.grandTotal.value,
+                              )}",
                             ),
-                          ),
+                            ElevatedButton(
+                              onPressed: () {
+                                _confirmationDialog();
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.yellow),
+                              child: Container(
+                                width: double.infinity,
+                                child: Center(
+                                  child: Text(
+                                    "Proceed",
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
-              ],
-            ),
-          ),
         ),
       ),
     );
