@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../models/Coffee.dart';
-import '../ui/screens/order_screen.dart';
+import '../models/drink_model.dart';
+import '../view/screens/order_screen.dart';
 class JuiceController extends GetxController {
   var _juiceList = <Drink>[].obs;
 
@@ -52,6 +52,6 @@ class JuiceController extends GetxController {
   }
 
   navigateToOrderScreen(int index) {
-    Get.toNamed(OrderScreen.routeName, arguments: _juiceList[index]);
+    Get.toNamed("/order", arguments: _juiceList[index]);
   }
 }

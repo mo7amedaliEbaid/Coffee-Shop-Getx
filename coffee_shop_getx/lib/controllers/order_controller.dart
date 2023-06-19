@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../models/Coffee.dart';
-import '../models/Order.dart';
-import '../ui/screens/coffee_screen.dart';
+import '../models/drink_model.dart';
+import '../models/order_model.dart';
+import '../view/screens/coffee_screen.dart';
 
 class OrderController extends GetxController {
   late Order _order;
@@ -114,7 +114,7 @@ class OrderController extends GetxController {
         showSuccessSnackBar(
           'Order Added Successfully',
         );
-        Get.offNamed(CoffeeScreen.routeNamed);
+      //  Get.offNamed(CoffeeScreen.routeNamed);
       } else {
         showErrorSnackBar('Order not saved, Try again later!');
       }

@@ -1,12 +1,15 @@
-import 'package:coffee_shop_get/ui/screens/coffee_screen.dart';
-import 'package:coffee_shop_get/ui/screens/juice_screen.dart';
-import 'package:coffee_shop_get/ui/screens/tea_screen.dart';
-import 'package:coffee_shop_get/ui/widgets/greatday_widget.dart';
+
+import 'package:coffee_shop_get/view/widgets/greatday_widget.dart';
 import 'package:coffee_shop_get/utils/app_constants.dart';
 import 'package:coffee_shop_get/utils/global_constants.dart';
+import 'package:coffee_shop_get/view/screens/tea_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+
+import '../widgets/greatday_widget.dart';
+import 'coffee_screen.dart';
+import 'juice_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -42,11 +45,9 @@ class HomeScreen extends StatelessWidget {
             greatday(context, title, hometitle_color),
             SizedBox(height: MediaQuery.of(context).size.height*.08,),
             InkWell(
-              onTap: (){
-                Get.to(() => CoffeeScreen());
-              },
+              onTap: () => Get.toNamed(Appconstants.coffeeroute),
               child: buildcategorytile(context, Appconstants.catsimgs[0], cat1,
-                  coffeestyle!, coffeeback),
+                  coffeestyle!, authbackcolor),
             ),
             kSizedBox,
             InkWell(

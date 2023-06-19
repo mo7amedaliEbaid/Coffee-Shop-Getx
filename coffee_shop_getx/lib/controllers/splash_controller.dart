@@ -1,9 +1,9 @@
+/*
 
 import 'dart:async';
-import 'package:coffee_shop_get/ui/screens/home_screen.dart';
 import 'package:get/get.dart';
 
-import '../ui/screens/coffee_screen.dart';
+import '../view/screens/home_screen.dart';
 
 
 class SplashController extends GetxController{
@@ -14,5 +14,30 @@ class SplashController extends GetxController{
     Timer(Duration(seconds: 5),(){
       Get.offNamed(HomeScreen.routeName);
     });
+  }
+}*/
+import 'dart:async';
+
+import 'package:coffee_shop_get/utils/app_constants.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
+class SplashController extends GetxController {
+  GetStorage box = GetStorage();
+
+  startChecking() {
+    Timer(Duration(seconds: 2), () {
+      if (box.hasData('auth')) {
+        Get.offNamed(Appconstants.homeroute);
+      } else {
+        Get.offNamed(Appconstants.authroute);
+      }
+    });
+  }
+
+  @override
+  void onReady() {
+    startChecking();
+    super.onReady();
   }
 }

@@ -4,12 +4,13 @@ import 'package:get/get.dart';
 import '../../controllers/splash_controller.dart';
 
 class SplashScreen extends StatelessWidget {
-  static const routeNamed = '/splashScreen';
 
-  SplashController _splashController = Get.find();
+  late SplashController controller;
+
 
   @override
   Widget build(BuildContext context) {
+    controller = Get.find<SplashController>();
     final mediaQuery = MediaQuery.of(context).size;
     return Scaffold(
         body: SafeArea(

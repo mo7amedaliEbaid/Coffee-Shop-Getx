@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../models/Coffee.dart';
-import '../ui/screens/order_screen.dart';
+import '../models/drink_model.dart';
+import '../view/screens/order_screen.dart';
 class TeaController extends GetxController {
   var _teaList = <Drink>[].obs;
 
@@ -47,6 +47,6 @@ class TeaController extends GetxController {
   }
 
   navigateToOrderScreen(int index) {
-    Get.toNamed(OrderScreen.routeName, arguments: _teaList[index]);
+    Get.toNamed("/order", arguments: _teaList[index]);
   }
 }

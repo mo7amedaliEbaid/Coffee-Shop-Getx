@@ -1,20 +1,19 @@
 import 'package:coffee_shop_get/controllers/cart_controller.dart';
-import 'package:coffee_shop_get/ui/screens/cart_screen.dart';
-import 'package:coffee_shop_get/ui/widgets/greatday_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../controllers/coffee_controller.dart';
-import '../../models/Order.dart';
+import '../../models/order_model.dart';
+import '../../view/screens/cart_screen.dart';
 import '../../utils/global_constants.dart';
 import '../widgets/animated_searchbar.dart';
+import '../widgets/greatday_widget.dart';
 import '../widgets/main_drawer.dart';
 
 class CoffeeScreen extends StatelessWidget {
-  static const routeNamed = '/dashboard';
   final String title = "Coffee";
-   CoffeeController _coffeeController = Get.put<CoffeeController>(CoffeeController());
+  late CoffeeController _coffeeController ;
   CartController _cartcontroller = Get.put<CartController>(CartController());
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final box = GetStorage();
@@ -22,14 +21,16 @@ class CoffeeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // Order? order=(box.read('Order'))??Order();
+    _coffeeController = Get.find<CoffeeController>();
+
+    // Order? order=(box.read('Order'))??Order();
     //  order = (box.read('Order'));
   //  order = Order();
     return Scaffold(
-      backgroundColor: coffeeback,
+      backgroundColor: authbackcolor,
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.pink.shade50,
+        backgroundColor: authbackcolor,
         elevation: 0.0,
         bottomOpacity: 0.0,
         leading: IconButton(
@@ -41,7 +42,7 @@ class CoffeeScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          AnimatedSearchBar(),
+         // AnimatedSearchBar(),
         ],
       ),
       body: SafeArea(
@@ -85,14 +86,14 @@ class CoffeeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
+           /* Align(
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: double.infinity,
                 height: 10,
                 color: Colors.pink.shade50,
               ),
-            ),
+            ),*/
           ],
         ),
       ),

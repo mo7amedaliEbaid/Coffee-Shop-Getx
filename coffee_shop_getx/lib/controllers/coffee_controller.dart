@@ -1,7 +1,8 @@
+import 'package:coffee_shop_get/utils/app_constants.dart';
 import 'package:get/get.dart';
 
-import '../models/Coffee.dart';
-import '../ui/screens/order_screen.dart';
+import '../models/drink_model.dart';
+import '../view/screens/order_screen.dart';
 class CoffeeController extends GetxController {
   var _coffeeList = <Drink>[].obs;
 
@@ -58,6 +59,6 @@ class CoffeeController extends GetxController {
   }
 
   navigateToOrderScreen(int index) {
-    Get.toNamed(OrderScreen.routeName, arguments: _coffeeList[index]);
+    Get.toNamed(Appconstants.orderroute, arguments: _coffeeList[index]);
   }
 }

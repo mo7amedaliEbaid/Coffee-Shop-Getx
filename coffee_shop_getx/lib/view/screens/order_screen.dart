@@ -7,11 +7,14 @@ import '../../controllers/order_controller.dart';
 import '../../utils/global_constants.dart';
 
 class OrderScreen extends StatelessWidget {
-  static const routeName = '/orderscreen';
-  OrderController _orderController = Get.put<OrderController>(OrderController());
+  //static const routeName = '/orderscreen';
+  //OrderController _orderController = Get.put<OrderController>(OrderController());
+  late OrderController _orderController ;
 
   @override
   Widget build(BuildContext context) {
+    _orderController = Get.find<OrderController>();
+
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(

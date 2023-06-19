@@ -1,9 +1,9 @@
 import 'package:coffee_shop_get/controllers/juice_controller.dart';
-import 'package:coffee_shop_get/ui/widgets/greatday_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../utils/global_constants.dart';
+import '../widgets/greatday_widget.dart';
 import '../widgets/main_drawer.dart';
 
 class JuiceScreen extends StatelessWidget {

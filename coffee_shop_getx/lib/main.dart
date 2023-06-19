@@ -1,29 +1,35 @@
-import 'package:coffee_shop_get/controllers/cart_controller.dart';
-import 'package:coffee_shop_get/controllers/order_controller.dart';
-import 'package:coffee_shop_get/ui/screens/coffee_screen.dart';
-import 'package:coffee_shop_get/ui/screens/home_screen.dart';
-import 'package:coffee_shop_get/ui/screens/order_screen.dart';
-import 'package:coffee_shop_get/ui/screens/splash_screen.dart';
+
+import 'package:coffee_shop_get/controllers/bindings/coffee_binding.dart';
+import 'package:coffee_shop_get/controllers/bindings/order_binding.dart';
+import 'package:coffee_shop_get/utils/app_constants.dart';
+import 'package:coffee_shop_get/view/screens/auth_screen.dart';
+import 'package:coffee_shop_get/view/screens/coffee_screen.dart';
+import 'package:coffee_shop_get/view/screens/home_screen.dart';
+import 'package:coffee_shop_get/view/screens/order_screen.dart';
+import 'package:coffee_shop_get/view/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
-import 'controllers/coffee_controller.dart';
+import 'controllers/bindings/auth_binding.dart';
+import 'controllers/bindings/splash_binding.dart';
 import 'controllers/splash_controller.dart';
 
 
-void main() async {
+void main() {
+  runApp(MyApp());
+}
+/*async {
   await GetStorage.init();
-  Get.put(SplashController());
+ // Get.put(SplashController());
  // Get.put(CoffeeController());
- /* Get.put(CartController());
-  Get.put(OrderController());*/
+ *//* Get.put(CartController());
+  Get.put(OrderController());*//*
   runApp(MyApp());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
    // statusBarColor: Colors.pink.shade50,
   ));
-}
+}*/
 
 class MyApp extends StatelessWidget {
   @override
@@ -56,21 +62,34 @@ class MyApp extends StatelessWidget {
           ),
         ),*/
       ),
-      initialRoute: SplashScreen.routeNamed,
       getPages: [
         GetPage(
-          name: SplashScreen.routeNamed,
-          page: () => SplashScreen(),
-        ),
-        GetPage(
-          name: HomeScreen.routeName,
+          name: Appconstants.homeroute,
           page: () => HomeScreen(),
+        //  binding: ProductBinding(),
         ),
         GetPage(
-          name: OrderScreen.routeName,
+          name: Appconstants.authroute,
+          page: () => AuthScreen(),
+          binding: AuthBinding(),
+        ),
+        GetPage(
+          name: Appconstants.splashroute,
+          page: () => SplashScreen(),
+          binding: SplashBinding(),
+        ),
+        GetPage(
+          name: Appconstants.coffeeroute,
+          page: () => CoffeeScreen(),
+          binding: CoffeeBinding(),
+        ),
+        GetPage(
+          name: Appconstants.orderroute,
           page: () => OrderScreen(),
+          binding: OrderBinding(),
         ),
       ],
+      initialRoute: Appconstants.splashroute,
     );
   }
 }

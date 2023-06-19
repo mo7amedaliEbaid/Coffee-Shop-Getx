@@ -4,6 +4,11 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:get_storage/get_storage.dart';
 class Appconstants{
+  static String homeroute="/home";
+  static String coffeeroute="/coffee";
+  static String orderroute="/order";
+  static String splashroute="/splash";
+  static String authroute="/auth";
   static List<String> catsimgs=[
 "images/cats/coffee.jpg",
     "images/cats/juice.jpg",
