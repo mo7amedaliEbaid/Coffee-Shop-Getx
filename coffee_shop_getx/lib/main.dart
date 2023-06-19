@@ -1,17 +1,20 @@
-
 import 'package:coffee_shop_get/controllers/bindings/coffee_binding.dart';
 import 'package:coffee_shop_get/controllers/bindings/order_binding.dart';
-import 'package:coffee_shop_get/utils/app_constants.dart';
+import 'package:coffee_shop_get/controllers/bindings/tea_binding.dart';
 import 'package:coffee_shop_get/view/screens/auth_screen.dart';
 import 'package:coffee_shop_get/view/screens/coffee_screen.dart';
 import 'package:coffee_shop_get/view/screens/home_screen.dart';
+import 'package:coffee_shop_get/view/screens/juice_screen.dart';
 import 'package:coffee_shop_get/view/screens/order_screen.dart';
 import 'package:coffee_shop_get/view/screens/splash_screen.dart';
+import 'package:coffee_shop_get/view/screens/tea_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'consts/app_constants.dart';
 import 'controllers/bindings/auth_binding.dart';
+import 'controllers/bindings/juice_binding.dart';
 import 'controllers/bindings/splash_binding.dart';
 import 'controllers/splash_controller.dart';
 
@@ -87,6 +90,16 @@ class MyApp extends StatelessWidget {
           name: Appconstants.orderroute,
           page: () => OrderScreen(),
           binding: OrderBinding(),
+        ),
+        GetPage(
+          name: Appconstants.juiceroute,
+          page: () => JuiceScreen(),
+          binding: JuiceBinding(),
+        ),
+        GetPage(
+          name: Appconstants.tearoute,
+          page: () => TeaScreen(),
+          binding: TeaBinding(),
         ),
       ],
       initialRoute: Appconstants.splashroute,

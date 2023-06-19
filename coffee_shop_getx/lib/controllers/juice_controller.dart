@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../consts/app_constants.dart';
 import '../models/drink_model.dart';
 import '../view/screens/order_screen.dart';
 class JuiceController extends GetxController {
@@ -12,46 +13,46 @@ class JuiceController extends GetxController {
     super.onInit();
     var list = [
       Drink(
-        id: '1',
+        id: '6',
         name: 'Orange',
         icon: 'images/juice/orange.jpeg',
-        price: 15.25,
+        price: 15.25, qty: 0,
       ),
       Drink(
-        id: '2',
+        id: '7',
         name: 'Mango',
         icon: 'images/juice/mango.jpg',
-        price: 18.00,
+        price: 18.00, qty: 0,
       ),
       Drink(
-        id: '3',
+        id: '8',
         name: 'Apple',
         icon: 'images/juice/apple.jpg',
-        price: 22.20,
+        price: 22.20, qty: 0,
       ),
       Drink(
-        id: '4',
+        id: '9',
         name: 'Watermelon',
         icon: 'images/juice/waterme.jpg',
-        price: 24.66,
+        price: 24.66, qty: 0,
       ),
       Drink(
-        id: '5',
+        id: '10',
         name: 'Strawberries',
         icon: 'images/juice/strawb.jpeg',
-        price: 30.55,
+        price: 30.55, qty: 0,
       ),
       Drink(
-        id: '5',
+        id: '11',
         name: 'Pear',
         icon: 'images/juice/pear.jpg',
-        price: 45.55,
+        price: 45.55, qty: 0,
       ),
     ];
     _juiceList.addAll(list);
   }
 
   navigateToOrderScreen(int index) {
-    Get.toNamed("/order", arguments: _juiceList[index]);
+    Get.toNamed(Appconstants.orderroute, arguments: _juiceList[index]);
   }
 }

@@ -1,8 +1,8 @@
-import 'package:coffee_shop_get/utils/app_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../consts/app_constants.dart';
 import '../screens/home_screen.dart';
 
 class MainDrawer extends StatelessWidget {

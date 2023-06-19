@@ -2,21 +2,24 @@ import 'package:coffee_shop_get/controllers/tea_controller.dart';
 import 'package:coffee_shop_get/view/widgets/greatday_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../utils/global_constants.dart';
+import '../../consts/global_constants.dart';
 import '../widgets/greatday_widget.dart';
-import '../widgets/main_drawer.dart';
+import '../widgets/drawer_widget.dart';
 
 class TeaScreen extends StatelessWidget {
-  static const routeNamed = '/tea';
   final String title = "Tea";
-  TeaController _teaController = Get.put<TeaController>(TeaController());
+ // TeaController _teaController = Get.put<TeaController>(TeaController());
 //  CartController _cartcontroller = Get.put<CartController>(CartController());
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+  late TeaController _teaController ;
+
   // final box = GetStorage();
 
 
   @override
   Widget build(BuildContext context) {
+    _teaController = Get.find<TeaController>();
+
     // Order? order=(box.read('Order'))??Order();
     //  order = (box.read('Order'));
     //  order = Order();
@@ -80,14 +83,14 @@ class TeaScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
+           /* Align(
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: double.infinity,
                 height: 10,
                 color: Colors.pink.shade50,
               ),
-            ),
+            ),*/
           ],
         ),
       ),

@@ -9,6 +9,8 @@ class Appconstants{
   static String orderroute="/order";
   static String splashroute="/splash";
   static String authroute="/auth";
+  static String juiceroute="/juice";
+  static String tearoute="/tea";
   static List<String> catsimgs=[
 "images/cats/coffee.jpg",
     "images/cats/juice.jpg",

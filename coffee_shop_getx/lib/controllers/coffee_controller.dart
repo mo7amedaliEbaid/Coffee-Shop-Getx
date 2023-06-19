@@ -1,58 +1,58 @@
-import 'package:coffee_shop_get/utils/app_constants.dart';
 import 'package:get/get.dart';
 
+import '../consts/app_constants.dart';
 import '../models/drink_model.dart';
 import '../view/screens/order_screen.dart';
 class CoffeeController extends GetxController {
-  var _coffeeList = <Drink>[].obs;
+  RxList<Drink> _coffeeList = <Drink>[].obs;
 
-  List<Drink> get getCoffeeList => _coffeeList;
+  RxList<Drink> get getCoffeeList => _coffeeList;
 
   @override
   void onInit() {
     super.onInit();
-    var list = [
+    List<Drink> list = <Drink>[
       Drink(
         id: '1',
         name: 'Espresso',
         icon: 'images/coffee/esep.jpg',
-        price: 15.25,
+        price: 15.25, qty: 0,
       ),
       Drink(
         id: '2',
         name: 'Cappuccino',
         icon: 'images/coffee/capu.jpeg',
-        price: 18.00,
+        price: 18.00, qty: 0,
       ),
       Drink(
         id: '3',
         name: 'Macchiato',
         icon: 'images/coffee/machito.jpg',
-        price: 22.20,
+        price: 22.20, qty: 0,
       ),
       Drink(
         id: '4',
         name: 'Mocha',
         icon: 'images/coffee/mocha.jpg',
-        price: 24.66,
+        price: 24.66, qty: 0,
       ),
       Drink(
         id: '5',
         name: 'Latte',
         icon: 'images/coffee/latte.jpg',
-        price: 30.55,
+        price: 30.55, qty: 0,
       ),
       Drink(
         id: '5',
         name: 'Americano',
         icon: 'images/coffee/americano.jpg',
-        price: 45.55,
+        price: 45.55, qty: 0,
       ),
       Drink(
         id: '5',
         name: 'Doppio',
         icon: 'images/coffee/doppio.jpg',
-        price: 25.99,
+        price: 25.99, qty: 0,
       ),
     ];
     _coffeeList.addAll(list);

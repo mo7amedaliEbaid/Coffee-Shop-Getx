@@ -1,23 +1,24 @@
 import 'package:coffee_shop_get/controllers/juice_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../utils/global_constants.dart';
+import '../../consts/global_constants.dart';
 import '../widgets/greatday_widget.dart';
-import '../widgets/main_drawer.dart';
+import '../widgets/drawer_widget.dart';
 
 class JuiceScreen extends StatelessWidget {
-  static const routeNamed = '/juice';
+ // static const routeNamed = '/juice';
   final String title = "Juice";
-  JuiceController _juiceController = Get.put<JuiceController>(JuiceController());
+ // JuiceController _juiceController = Get.put<JuiceController>(JuiceController());
 //  CartController _cartcontroller = Get.put<CartController>(CartController());
   final _scaffoldKey = GlobalKey<ScaffoldState>();
  // final box = GetStorage();
-
+  late JuiceController _juiceController ;
 
   @override
   Widget build(BuildContext context) {
-   // Order? order=(box.read('Order'))??Order();
+    _juiceController = Get.find<JuiceController>();
+
+    // Order? order=(box.read('Order'))??Order();
     //  order = (box.read('Order'));
     //  order = Order();
     return Scaffold(
@@ -80,14 +81,14 @@ class JuiceScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Align(
+             /* Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
                   width: double.infinity,
                   height: 10,
                   color: Colors.pink.shade50,
                 ),
-              ),
+              ),*/
             ],
           ),
         ),

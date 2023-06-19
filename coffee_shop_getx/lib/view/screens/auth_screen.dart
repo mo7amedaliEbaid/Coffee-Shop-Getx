@@ -1,7 +1,7 @@
-import 'package:coffee_shop_get/utils/global_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../consts/global_constants.dart';
 import '../../controllers/auth_controller.dart';
 
 class AuthScreen extends StatelessWidget {

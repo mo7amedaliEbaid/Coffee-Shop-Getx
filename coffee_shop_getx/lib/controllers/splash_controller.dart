@@ -17,10 +17,10 @@ class SplashController extends GetxController{
   }
 }*/
 import 'dart:async';
-
-import 'package:coffee_shop_get/utils/app_constants.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
+import '../consts/app_constants.dart';
 
 class SplashController extends GetxController {
   GetStorage box = GetStorage();

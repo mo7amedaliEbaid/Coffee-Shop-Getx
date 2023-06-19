@@ -1,12 +1,12 @@
 
 import 'package:coffee_shop_get/view/widgets/greatday_widget.dart';
-import 'package:coffee_shop_get/utils/app_constants.dart';
-import 'package:coffee_shop_get/utils/global_constants.dart';
 import 'package:coffee_shop_get/view/screens/tea_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../consts/app_constants.dart';
+import '../../consts/global_constants.dart';
 import '../widgets/greatday_widget.dart';
 import 'coffee_screen.dart';
 import 'juice_screen.dart';
@@ -51,9 +51,7 @@ class HomeScreen extends StatelessWidget {
             ),
             kSizedBox,
             InkWell(
-              onTap: (){
-                Get.to(() => JuiceScreen());
-              },
+              onTap: () => Get.toNamed(Appconstants.juiceroute),
               child: buildcategorytile(context, Appconstants.catsimgs[1], cat2,
                   juicestyle!, Colors.orangeAccent.shade100),
             ),

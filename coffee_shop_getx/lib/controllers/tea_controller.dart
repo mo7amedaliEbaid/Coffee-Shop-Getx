@@ -1,3 +1,4 @@
+import 'package:coffee_shop_get/consts/app_constants.dart';
 import 'package:get/get.dart';
 
 import '../models/drink_model.dart';
@@ -12,34 +13,34 @@ class TeaController extends GetxController {
     super.onInit();
     var list = [
       Drink(
-        id: '1',
+        id: '12',
         name: 'Black',
         icon: 'images/tea/black.jpg',
-        price: 9.25,
+        price: 9.25, qty: 0,
       ),
       Drink(
-        id: '2',
+        id: '13',
         name: 'Ice',
         icon: 'images/tea/ice.jpg',
-        price: 11.00,
+        price: 11.00, qty: 0,
       ),
       Drink(
-        id: '3',
+        id: '14',
         name: 'Green',
         icon: 'images/tea/green.jpg',
-        price: 8.20,
+        price: 8.20, qty: 0,
       ),
       Drink(
-        id: '4',
+        id: '15',
         name: 'Herbal',
         icon: 'images/tea/herbal.jpg',
-        price: 14.66,
+        price: 14.66, qty: 0,
       ),
       Drink(
-        id: '5',
+        id: '16',
         name: 'White',
         icon: 'images/tea/white.jpg',
-        price: 10.55,
+        price: 10.55, qty: 0,
       ),
 
     ];
@@ -47,6 +48,6 @@ class TeaController extends GetxController {
   }
 
   navigateToOrderScreen(int index) {
-    Get.toNamed("/order", arguments: _teaList[index]);
+    Get.toNamed(Appconstants.orderroute, arguments: _teaList[index]);
   }
 }

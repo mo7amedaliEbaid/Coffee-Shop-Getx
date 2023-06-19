@@ -1,8 +1,9 @@
-import 'package:coffee_shop_get/utils/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get_storage/get_storage.dart';
+
+import '../consts/app_constants.dart';
 
 class AuthController extends GetxController {
   GlobalKey<FormState> globalKey = GlobalKey<FormState>();

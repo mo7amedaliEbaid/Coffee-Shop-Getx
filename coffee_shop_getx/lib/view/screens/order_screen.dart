@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 
+import '../../consts/global_constants.dart';
 import '../../controllers/order_controller.dart';
-import '../../utils/global_constants.dart';
 
 class OrderScreen extends StatelessWidget {
   //static const routeName = '/orderscreen';

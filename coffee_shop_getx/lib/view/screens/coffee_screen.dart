@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../consts/global_constants.dart';
 import '../../controllers/coffee_controller.dart';
 import '../../models/order_model.dart';
 import '../../view/screens/cart_screen.dart';
-import '../../utils/global_constants.dart';
-import '../widgets/animated_searchbar.dart';
+import '../widgets/animated_searchbar_widget.dart';
 import '../widgets/greatday_widget.dart';
-import '../widgets/main_drawer.dart';
+import '../widgets/drawer_widget.dart';
 
 class CoffeeScreen extends StatelessWidget {
   final String title = "Coffee";
@@ -99,7 +99,7 @@ class CoffeeScreen extends StatelessWidget {
       ),
       drawerScrimColor: Colors.black54,
       drawer: MainDrawer(),
-      floatingActionButton: GetBuilder<CartController>(builder: (_){
+     /* floatingActionButton: GetBuilder<CartController>(builder: (_){
             return _cartcontroller.myorder==null? Container():FloatingActionButton(
               onPressed: () {
                 print(box.read('Order'));
@@ -110,8 +110,8 @@ class CoffeeScreen extends StatelessWidget {
                 color: Colors.white,
               ),
               backgroundColor: Colors.pink.shade300,
-            );
-      })
+            );*/
+    //  })
 
     );
   }

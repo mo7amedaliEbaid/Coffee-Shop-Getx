@@ -14,10 +14,10 @@ class CartScreen extends StatelessWidget {
           title: Text("Cart"),
         ),
         body: Center(
-          child: Text(_cartController.myorder?.coffee?.name.toString() ?? "",style: TextStyle(
+          /*child: Text(_cartController.myorder?.coffee?.name.toString() ?? "",style: TextStyle(
             fontSize: 50,
             color: Colors.black
-          ),),
+          ),),*/
         ),
       );
    });
