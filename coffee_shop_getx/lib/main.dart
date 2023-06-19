@@ -1,7 +1,9 @@
+import 'package:coffee_shop_get/controllers/bindings/cart_binding.dart';
 import 'package:coffee_shop_get/controllers/bindings/coffee_binding.dart';
 import 'package:coffee_shop_get/controllers/bindings/order_binding.dart';
 import 'package:coffee_shop_get/controllers/bindings/tea_binding.dart';
 import 'package:coffee_shop_get/view/screens/auth_screen.dart';
+import 'package:coffee_shop_get/view/screens/cart_screen.dart';
 import 'package:coffee_shop_get/view/screens/coffee_screen.dart';
 import 'package:coffee_shop_get/view/screens/home_screen.dart';
 import 'package:coffee_shop_get/view/screens/juice_screen.dart';
@@ -100,6 +102,11 @@ class MyApp extends StatelessWidget {
           name: Appconstants.tearoute,
           page: () => TeaScreen(),
           binding: TeaBinding(),
+        ),
+        GetPage(
+          name: Appconstants.cartroute,
+          page: () => CartScreen(),
+          binding: CartBinding(),
         ),
       ],
       initialRoute: Appconstants.splashroute,

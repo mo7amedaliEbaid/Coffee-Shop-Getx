@@ -1,75 +1,62 @@
+import 'package:coffee_shop_get/models/drink_model.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get_storage/get_storage.dart';
-
-import '../models/drink_model.dart';
-
 class CartController extends GetxController {
+  RxList<Drink> cart = <Drink>[].obs;
   GetStorage box = GetStorage();
-  RxList<Drink> cartlist = <Drink>[].obs;
-
-  void addItemToCart(Drink drink) {
-    drink.qty = 1;
-    cartlist.add(drink);
+  RxInt grandTotal = 0.obs;
+  Map<String, dynamic> userSession = GetStorage().read('auth');
+  void removeSelectedItemFromCart(int index) {
+    cart.removeAt(index);
 
     List<Map<String, dynamic>> items_cart =
-        cartlist.map((Drink e) => e.toJson()).toList();
+    cart.map((Drink e) => e.toJson()).toList();
 
     box.write('items_cart', items_cart);
   }
+  void increaseQtyOfSelectedItemInCart(int index) {
+    cart[index].qty++;
 
+    List<Map<String, dynamic>> items_cart =
+    cart.map((Drink e) => e.toJson()).toList();
+
+    box.write('items_cart', items_cart);
+  }
+  void decreaseQtyOfSelectedItemInCart(int index, Drink airsoft) {
+    if (airsoft.qty == 1) {
+      cart.removeAt(index);
+    } else {
+      cart[index].qty--;
+    }
+    List<Map<String, dynamic>> items_cart =
+    cart.map((Drink e) => e.toJson()).toList();
+
+    box.write('items_cart', items_cart);
+  }
+  void calculateGrandTotal() {
+    grandTotal.value = 0;
+    for (int i = 0; i < cart.length; i++) {
+      grandTotal = grandTotal + (cart[i].qty * cart[i].price).round();
+    }
+  }
   void updatingSession() {
     box.listenKey('items_cart', (updatedValue) {
-      print(" $updatedValue");
       if (updatedValue is List) {
-        cartlist.clear();
-        cartlist.addAll(updatedValue.map((e) => Drink.fromMap(e)).toList());
+        cart.clear();
+        cart.addAll(updatedValue.map((e) => Drink.fromMap(e)).toList());
+        calculateGrandTotal();
       }
     });
   }
-
-  void decreaseQtyOfItemInCart(Drink drink) {
-    if (drink.qty == 1) {
-      cartlist.removeWhere((Drink selectedItem) => selectedItem.id == drink.id);
-    } else {
-      cartlist.removeWhere((Drink selectedItem) => selectedItem.id == drink.id);
-      drink.qty--;
-      cartlist.add(drink);
-    }
-    List<Map<String, dynamic>> items_cart =
-        cartlist.map((Drink e) => e.toJson()).toList();
-    box.write('items_cart', items_cart);
-  }
-
-  void increaseQtyOfItemInCart(Drink drink) {
-    cartlist.removeWhere((Drink selectedItem) => selectedItem.id == drink.id);
-    drink.qty++;
-    cartlist.add(drink);
-
-    List<Map<String, dynamic>> items_cart =
-        cartlist.map((Drink e) => e.toJson()).toList();
-    box.write('items_cart', items_cart);
-  }
-
-  void removeSelectedItemFromCart(int id) {
-    cartlist.removeWhere((Drink selectedItem) => selectedItem.id == id);
-
-    List<Map<String, dynamic>> items_cart =
-        cartlist.map((Drink e) => e.toJson()).toList();
-
-    box.write('items_cart', items_cart);
-  }
-
   void getUpdatedSessionCartData() {
     if (box.hasData('items_cart')) {
       List<dynamic> value = GetStorage().read('items_cart');
       if (value is List) {
-        List<Drink> getModelFromSession =
-            value.map((e) => Drink.fromMap(e)).toList();
-        cartlist.clear();
-        cartlist.addAll(getModelFromSession);
+        cart.clear();
+        cart.addAll(value.map((e) => Drink.fromMap(e)).toList());
+        calculateGrandTotal();
       }
     }
     updatingSession();
@@ -81,8 +68,15 @@ class CartController extends GetxController {
     super.onReady();
   }
 
-  void logout() {
-    box.erase();
-    Get.offAllNamed('/splash');
+  void transactionCompleted() {
+    box.write("items_cart", []).then((value) {
+      grandTotal.value = 0;
+      cart.clear();
+      Get.back();
+      Get.snackbar("Message", "Transaction succeed ! ",
+          colorText: Colors.white,
+          backgroundColor: Color(0xff4D4D4D),
+          snackPosition: SnackPosition.BOTTOM);
+    });
   }
 }

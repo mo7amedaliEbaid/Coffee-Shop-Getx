@@ -1,3 +1,7 @@
+import 'package:badges/badges.dart';
+import 'package:coffee_shop_get/consts/app_constants.dart';
+import 'package:coffee_shop_get/controllers/cart_controller.dart';
+import 'package:coffee_shop_get/models/drink_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -9,8 +13,9 @@ import '../../controllers/order_controller.dart';
 class OrderScreen extends StatelessWidget {
   //static const routeName = '/orderscreen';
   //OrderController _orderController = Get.put<OrderController>(OrderController());
-  late OrderController _orderController ;
+  late OrderController _orderController;
 
+  // CartController controller=Get.put(CartController());
   @override
   Widget build(BuildContext context) {
     _orderController = Get.find<OrderController>();
@@ -25,18 +30,18 @@ class OrderScreen extends StatelessWidget {
               title: Text(
                 _orderController.getCoffee.name,
                 style: Theme.of(context).textTheme.headline4?.copyWith(
-                  color: Colors.brown,
-                  backgroundColor: Colors.white70
-                ),
+                    color: Colors.brown, backgroundColor: Colors.white70),
               ),
               centerTitle: true,
               snap: true,
               flexibleSpace: Container(
                 decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage(_orderController.getCoffee.icon,
-                    ),fit: BoxFit.fill,)
-                ),
-
+                    image: DecorationImage(
+                  image: AssetImage(
+                    _orderController.getCoffee.icon,
+                  ),
+                  fit: BoxFit.fill,
+                )),
               ),
             ),
             SliverFillRemaining(
@@ -65,6 +70,28 @@ class OrderScreen extends StatelessWidget {
                     buildSugarWidget(context),
                     kSizedBox,
                     buildAddToCartButton(context),
+                    Obx(
+                      () => _orderController.cartlist.isNotEmpty
+                          ? InkWell(
+                              onTap: () => Get.toNamed(Appconstants.cartroute),
+                              child: Badge(
+                                child: const Icon(Icons.shopping_cart),
+                                badgeStyle: BadgeStyle(badgeColor: Colors.red),
+                                // badgeColor: Colors.red,
+                                badgeContent: Padding(
+                                  padding: const EdgeInsets.all(4),
+                                  child: Text(
+                                    '${_orderController.cartlist.length}',
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                          : const Icon(Icons.shopping_cart),
+                    ),
                   ],
                 ),
               ),
@@ -76,10 +103,31 @@ class OrderScreen extends StatelessWidget {
   }
 
   Widget buildAddToCartButton(BuildContext context) {
-    return GetBuilder<OrderController>(builder: (_){
-      return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SizedBox(
+    // CartController controller=Get.put(CartController());
+    //  OrderController _orderController = Get.find<OrderController>();
+
+//Drink? drink;
+    return Obx(() {
+      Drink? selectedModel = _orderController.cartlist.firstWhereOrNull(
+          (Drink selectedItem) =>
+              selectedItem.id == _orderController.getCoffee.id);
+
+      if (selectedModel == null) {
+        return ElevatedButton(
+          onPressed: () {
+            _orderController.addToCart();
+            _orderController.addItemToCart(_orderController.getCoffee);
+          },
+          child: Text("Add To Cart"),
+        );
+      } else {
+        return Text("remove"); //_buildQty(selectedModel);
+      }
+    });
+    //GetBuilder<OrderController>(builder: (_){
+    // return Padding(
+    // padding: const EdgeInsets.all(8.0),
+    /* child:*/ /*SizedBox(
           width: double.infinity,
           height: 60,
           child: ElevatedButton(
@@ -98,17 +146,16 @@ class OrderScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ],
-            ),
-            // splashColor: Theme.of(context).accentColor,
-            //  color: Theme.of(context).primaryColor,
-            //  shape: RoundedRectangleBorder(
-            //   borderRadius: BorderRadius.circular(10),
-            //   ),
-          ),
-        ),
-      );
-    });
-
+            ),*/
+    // splashColor: Theme.of(context).accentColor,
+    //  color: Theme.of(context).primaryColor,
+    //  shape: RoundedRectangleBorder(
+    //   borderRadius: BorderRadius.circular(10),
+    //   ),
+    // ),
+    //    ),
+    //  );
+    // });
   }
 
   Widget buildSugarWidget(BuildContext context) {

@@ -37,6 +37,7 @@ dependencies:
   get:
   intl:
   get_storage:
+  badges:
 
 dev_dependencies:
   flutter_test:

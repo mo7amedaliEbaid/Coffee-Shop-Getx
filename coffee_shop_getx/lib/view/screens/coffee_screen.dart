@@ -14,7 +14,7 @@ import '../widgets/drawer_widget.dart';
 class CoffeeScreen extends StatelessWidget {
   final String title = "Coffee";
   late CoffeeController _coffeeController ;
-  CartController _cartcontroller = Get.put<CartController>(CartController());
+  //CartController _cartcontroller = Get.put<CartController>(CartController());
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final box = GetStorage();
 
