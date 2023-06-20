@@ -73,8 +73,8 @@ class _AnimatedSearchBarState extends State<AnimatedSearchBar> {
                     onTap: (){
                       setState(() {
                         _folded = !_folded;
-                        _searchController.setSearchingstate(0);
-                        _textEditingController.clear();
+                       // _searchController.setSearchingstate(0);
+                        //_textEditingController.clear();
                       });
 
                     },
