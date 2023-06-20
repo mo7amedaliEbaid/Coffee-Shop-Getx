@@ -1,0 +1,156 @@
+import '../models/drink_model.dart';
+
+List<Drink> coffeelist = <Drink>[
+  Drink(
+    id: 1,
+    name: 'Espresso',
+    icon: 'images/coffee/esep.jpg',
+    price: 15.25,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 2,
+    name: 'Cappuccino',
+    icon: 'images/coffee/capu.jpeg',
+    price: 18.00,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 3,
+    name: 'Macchiato',
+    icon: 'images/coffee/machito.jpg',
+    price: 22.20,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 4,
+    name: 'Mocha',
+    icon: 'images/coffee/mocha.jpg',
+    price: 24.66,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 5,
+    name: 'Latte',
+    icon: 'images/coffee/latte.jpg',
+    price: 30.55,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 6,
+    name: 'Americano',
+    icon: 'images/coffee/americano.jpg',
+    price: 45.55,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 7,
+    name: 'Doppio',
+    icon: 'images/coffee/doppio.jpg',
+    price: 25.99,
+    qty: 0,
+    cupsize: 0,
+  ),
+];
+
+
+List<Drink> juicelist = <Drink>[
+  Drink(
+    id: 8,
+    name: 'Orange',
+    icon: 'images/juice/orange.jpeg',
+    price: 15.25,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 9,
+    name: 'Mango',
+    icon: 'images/juice/mango.jpg',
+    price: 18.00,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 10,
+    name: 'Apple',
+    icon: 'images/juice/apple.jpg',
+    price: 22.20,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 11,
+    name: 'Watermelon',
+    icon: 'images/juice/waterme.jpg',
+    price: 24.66,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 12,
+    name: 'Strawberries',
+    icon: 'images/juice/strawb.jpeg',
+    price: 30.55,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 13,
+    name: 'Pear',
+    icon: 'images/juice/pear.jpg',
+    price: 45.55,
+    qty: 0,
+    cupsize: 0,
+  ),
+];
+
+
+List<Drink> tealist = <Drink>[
+  Drink(
+    id: 14,
+    name: 'Black',
+    icon: 'images/tea/black.jpg',
+    price: 9.25,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 15,
+    name: 'Ice',
+    icon: 'images/tea/ice.jpg',
+    price: 11.00,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 16,
+    name: 'Green',
+    icon: 'images/tea/green.jpg',
+    price: 8.20,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 17,
+    name: 'Herbal',
+    icon: 'images/tea/herbal.jpg',
+    price: 14.66,
+    qty: 0,
+    cupsize: 0,
+  ),
+  Drink(
+    id: 18,
+    name: 'White',
+    icon: 'images/tea/white.jpg',
+    price: 10.55,
+    qty: 0,
+    cupsize: 0,
+  ),
+];

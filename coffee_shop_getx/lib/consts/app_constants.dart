@@ -21,34 +21,28 @@ class Appconstants {
   ];
 
 
-  static List<Map<String, Object>> titleslist = [
+  static List<Map<String, String>> socialist = [
     {
-      'title': 'Home',
+      'name': 'Facebook',
+      'url': 'https://www.facebook.com/',
+      'img': 'images/social/face.png',
     },
     {
-      'title': 'My Orders',
+      'name': 'WhatsApp',
+      'url': 'https://web.whatsapp.com/',
+      'img': 'images/social/what.png',
     },
     {
-      'title': 'My Profile',
+      'name': 'Gmail',
+      'url': 'https://www.google.com/gmail/about/',
+      'img': 'images/social/gma.png',
     },
     {
-      'title': 'Settings',
+      'url': 'https://www.instagram.com/',
+      'name': 'Instgram',
+      'img': 'images/social/Instagram-Icon.png',
+
     },
   ];
 
-
-  static List<Map<String, IconData>> icons = [
-    {
-      'icon': Icons.home_filled,
-    },
-    {
-      'icon': Icons.bookmark_border,
-    },
-    {
-      'icon': Icons.person_pin,
-    },
-    {
-      'icon': Icons.settings,
-    },
-  ];
 }

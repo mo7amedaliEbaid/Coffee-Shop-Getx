@@ -99,7 +99,6 @@ class OrderController extends GetxController {
 
   void removeSelectedItemFromCart(int id) {
     cartlist.removeWhere((Drink selectedItem) => selectedItem.id == id);
-  //  _totalPrice.value == 0;
     List<Map<String, dynamic>> items_cart =
         cartlist.map((Drink e) => e.toJson()).toList();
     showSuccessSnackBar(
@@ -127,10 +126,7 @@ class OrderController extends GetxController {
     super.onReady();
   }
 
-  void logout() {
-    box.erase();
-    Get.offAllNamed('/splash');
-  }
+
 
   @override
   void onInit() {

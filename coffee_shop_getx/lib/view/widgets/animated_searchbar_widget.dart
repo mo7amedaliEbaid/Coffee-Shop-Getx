@@ -1,5 +1,11 @@
+import 'package:coffee_shop_get/controllers/juice_controller.dart';
+import 'package:coffee_shop_get/controllers/search_controller.dart';
+import 'package:coffee_shop_get/controllers/tea_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../controllers/coffee_controller.dart';
 
 class AnimatedSearchBar extends StatefulWidget {
   @override
@@ -8,10 +14,12 @@ class AnimatedSearchBar extends StatefulWidget {
 
 class _AnimatedSearchBarState extends State<AnimatedSearchBar> {
   bool _folded = true;
-
+  TextEditingController _textEditingController=TextEditingController();
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
+    SearchController _searchController=Get.put(SearchController());
+
     return AnimatedContainer(
       duration: Duration(milliseconds: 400),
       width: _folded ? mediaQuery.width * 0.5 : mediaQuery.width * 0.75,
@@ -23,11 +31,18 @@ class _AnimatedSearchBarState extends State<AnimatedSearchBar> {
               padding: EdgeInsets.only(left: 16.0),
               child: !_folded
                   ? TextField(
+                controller: _textEditingController,
                       decoration: InputDecoration(
                         hintText: 'Search...',
                         hintStyle: Theme.of(context).textTheme.headline6,
                         border: InputBorder.none,
                       ),
+                onChanged: (searchedvalue){
+                  searchedvalue=_textEditingController.text.toString().trim();
+                  _searchController.getsearchedlist(searchedvalue);
+                  print(_searchController.searchedfordrinks.first.name.toString());
+                  _searchController.setSearchingstate(1);
+                },
                     )
                   : null,
             ),
@@ -50,11 +65,31 @@ class _AnimatedSearchBarState extends State<AnimatedSearchBar> {
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Icon(
-                    _folded ? Icons.search : Icons.close,
+                  child:_folded ? Icon(
+                      Icons.search ,
                     size: 30,
                     color: Colors.black,
-                  ),
+                  ):InkWell(
+                    onTap: (){
+                      setState(() {
+                        _folded = !_folded;
+                        _searchController.setSearchingstate(0);
+                        _textEditingController.clear();
+                      });
+
+                    },
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(0, 0, 20, 12),
+                      height: 10,
+                      width: 10,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Icon(Icons.close,size: 30,color: Colors.black,),
+                      ),
+                    ),
+                  )
                 ),
               ),
             ),
