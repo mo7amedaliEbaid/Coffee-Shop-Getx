@@ -19,6 +19,7 @@ class CoffeeController extends GetxController {
         icon: 'images/coffee/esep.jpg',
         price: 15.25,
         qty: 0,
+        cupsize: 0,
       ),
       Drink(
         id: 2,
@@ -26,6 +27,7 @@ class CoffeeController extends GetxController {
         icon: 'images/coffee/capu.jpeg',
         price: 18.00,
         qty: 0,
+        cupsize: 0,
       ),
       Drink(
         id: 3,
@@ -33,6 +35,7 @@ class CoffeeController extends GetxController {
         icon: 'images/coffee/machito.jpg',
         price: 22.20,
         qty: 0,
+        cupsize: 0,
       ),
       Drink(
         id: 4,
@@ -40,6 +43,7 @@ class CoffeeController extends GetxController {
         icon: 'images/coffee/mocha.jpg',
         price: 24.66,
         qty: 0,
+        cupsize: 0,
       ),
       Drink(
         id: 5,
@@ -47,6 +51,7 @@ class CoffeeController extends GetxController {
         icon: 'images/coffee/latte.jpg',
         price: 30.55,
         qty: 0,
+        cupsize: 0,
       ),
       Drink(
         id: 6,
@@ -54,6 +59,7 @@ class CoffeeController extends GetxController {
         icon: 'images/coffee/americano.jpg',
         price: 45.55,
         qty: 0,
+        cupsize: 0,
       ),
       Drink(
         id: 7,
@@ -61,6 +67,7 @@ class CoffeeController extends GetxController {
         icon: 'images/coffee/doppio.jpg',
         price: 25.99,
         qty: 0,
+        cupsize: 0,
       ),
     ];
     _coffeeList.addAll(list);

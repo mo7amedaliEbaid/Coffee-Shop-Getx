@@ -1,10 +1,12 @@
 import 'package:badges/badges.dart';
 import 'package:coffee_shop_get/consts/app_constants.dart';
+import 'package:coffee_shop_get/controllers/cart_controller.dart';
 import 'package:coffee_shop_get/models/drink_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import '../../consts/global_constants.dart';
 import '../../controllers/order_controller.dart';
 
@@ -60,7 +62,29 @@ class OrderScreen extends StatelessWidget {
                     SizedBox(
                       height: size.height * .035,
                     ),
-                    buildTotalAmountWidget(context),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Price:',
+                          style: Theme.of(context).textTheme.headline5,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child:/* Obx(
+                              () =>*/ Text(
+                            '\$ ${_orderController.getdrink.price}',
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.headline5,
+                         // ),
+                        ),
+                      ),
+                    ],
+                  ),
+                 //  buildTotalAmountWidget(context),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
@@ -78,7 +102,7 @@ class OrderScreen extends StatelessWidget {
                     ),
                     buildSugarWidget(context),
                     kSizedBox,
-                    buildAddToCartButton(context, _orderController.getCoffee),
+                    buildAddToCartButton(context, _orderController.getdrink),
                   ],
                 ),
               ),
@@ -102,14 +126,14 @@ class OrderScreen extends StatelessWidget {
           // centerTitle: true,
 
           title: Text(
-            _orderController.getCoffee.name,
+            _orderController.getdrink.name,
             style: Theme.of(context).textTheme.headline5?.copyWith(
                 color: Colors.black, backgroundColor: homescafold_color),
           ),
           background: Container(
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(_orderController.getCoffee.icon),
+                    image: AssetImage(_orderController.getdrink.icon),
                     fit: BoxFit.cover)),
           )),
     );
@@ -128,6 +152,7 @@ class OrderScreen extends StatelessWidget {
             onPressed: () {
               //  _orderController.addToCart();
               _orderController.addItemToCart(drink);
+             // _orderController.addQuantity();
             },
             child: Text("Add To Cart"),
           ),
@@ -140,10 +165,50 @@ class OrderScreen extends StatelessWidget {
 
   Widget _buildQty(Drink selectedModel, BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
+          padding: EdgeInsets.symmetric(horizontal: 50),
+          width: MediaQuery.of(context).size.width * .6,
+          height: MediaQuery.of(context).size.height * .05,
+          decoration: BoxDecoration(
+              color: coffeeback, borderRadius: BorderRadius.circular(5)),
+          child: Center(
+            child: Row(
+              children: [
+                IconButton(
+                  onPressed: () { _orderController
+                      .decreaseQtyOfItemInCart(_orderController.getdrink);
+                   // _orderController.lessQuantity();
+                    },
+                  icon: Icon(
+                    Icons.remove,
+                    color: Colors.red,
+                  ),
+                ),
+                kSizedBox,
+                Text(
+                  selectedModel.qty.toString(),
+                  style: numberstyle,
+                ),
+                kSizedBox,
+                IconButton(
+                  onPressed: () { _orderController
+                      .increaseQtyOfItemInCart(_orderController.getdrink);
+                   // _orderController.addQuantity();
+                    },
+                  icon: Icon(
+                    Icons.add,
+                    color: Colors.green,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Container(
           margin: EdgeInsets.only(top: 10),
-          width: MediaQuery.of(context).size.width * .5,
+          width: MediaQuery.of(context).size.width * .6,
           child: ElevatedButton.icon(
             icon: Icon(Icons.delete),
             style: ElevatedButton.styleFrom(
@@ -154,21 +219,6 @@ class OrderScreen extends StatelessWidget {
             label: Text("Remove"),
           ),
         ),
-        Row(
-          children: [
-            IconButton(
-              onPressed: () => _orderController
-                  .decreaseQtyOfItemInCart(_orderController.getCoffee),
-              icon: Icon(Icons.remove),
-            ),
-            Text(selectedModel.qty.toString()),
-            IconButton(
-              onPressed: () => _orderController
-                  .increaseQtyOfItemInCart(_orderController.getCoffee),
-              icon: Icon(Icons.add),
-            ),
-          ],
-        )
       ],
     );
   }
@@ -241,6 +291,7 @@ class OrderScreen extends StatelessWidget {
               value: 1,
               onChanged: (val) {
                 _orderController.setSelectedCupSize(val);
+
               },
               groupValue: _orderController.getSelectedCupSize,
             ),
@@ -256,6 +307,7 @@ class OrderScreen extends StatelessWidget {
               value: 2,
               onChanged: (val) {
                 _orderController.setSelectedCupSize(val);
+
               },
               groupValue: _orderController.getSelectedCupSize,
             ),
@@ -270,6 +322,7 @@ class OrderScreen extends StatelessWidget {
               value: 3,
               onChanged: (val) {
                 _orderController.setSelectedCupSize(val);
+
               },
               groupValue: _orderController.getSelectedCupSize,
             ),
@@ -279,16 +332,20 @@ class OrderScreen extends StatelessWidget {
     );
   }
 
-  Widget buildTotalAmountWidget(BuildContext context) {
+ /* Widget buildTotalAmountWidget(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
+            "Total • ${NumberFormat.currency(decimalDigits: 0, symbol: '').format(_orderController.getdrink.price * _orderController.getdrink.qty)} \$",
+                              style: Theme.of(context).textTheme.headline5,
+                            ),
+         *//* Text(
             'Total Amount:',
             style: Theme.of(context).textTheme.headline5,
-          ),
+          ),*//*
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -302,5 +359,5 @@ class OrderScreen extends StatelessWidget {
         ),
       ],
     );
-  }
+  }*/
 }

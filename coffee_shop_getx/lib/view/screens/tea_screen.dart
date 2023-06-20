@@ -78,7 +78,7 @@ class TeaScreen extends StatelessWidget {
         ),
       ),
       drawerScrimColor: Colors.black54,
-      drawer: MainDrawer(),
+      drawer: MyDrawer(),
     );
   }
 }

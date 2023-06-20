@@ -10,7 +10,7 @@ class OrderController extends GetxController {
   GetStorage box = GetStorage();
   RxList<Drink> cartlist = <Drink>[].obs;
 
-  late Order _order;
+  //late Order _order;
 
   var _totalPrice = 0.0.obs;
 
@@ -21,7 +21,7 @@ class OrderController extends GetxController {
   var _selectedSugarCubes = 1.obs;
 
   get getSelectedSugarCubes => _selectedSugarCubes.value;
-  late Drink _coffee;
+  late Drink _drink;
 
   var _quantity = 1.obs;
 
@@ -29,7 +29,7 @@ class OrderController extends GetxController {
 
   get getTotalPrice => _totalPrice.value;
 
-  Drink get getCoffee => _coffee;
+  Drink get getdrink => _drink;
 
   setSelectedCupSize(val) {
     _selectedCupSize.value = val;
@@ -40,14 +40,14 @@ class OrderController extends GetxController {
   }
 
   void getCoffeeArgs() {
-    _coffee = Get.arguments;
-    print(_coffee.name);
+    _drink = Get.arguments;
+    print(_drink.name);
   }
 
   addQuantity() {
     if (_quantity.value >= 0) {
       _quantity.value++;
-      _totalPrice.value = _coffee.price * _quantity.value.toDouble();
+      _totalPrice.value = _drink.price * _quantity.value.toDouble();
       print(_totalPrice);
     } else {
       showErrorSnackBar('Please select valid quantity');
@@ -57,7 +57,7 @@ class OrderController extends GetxController {
   lessQuantity() {
     if (_quantity > 0) {
       _quantity.value--;
-      _totalPrice.value = _coffee.price * _quantity.value.toDouble();
+      _totalPrice.value = _drink.price * _quantity.value.toDouble();
     } else {
       showErrorSnackBar('Please select valid quantity');
     }
@@ -84,7 +84,9 @@ class OrderController extends GetxController {
   void addItemToCart(Drink drink) {
     drink.qty = 1;
     cartlist.add(drink);
-
+    showSuccessSnackBar(
+      'Order Added To Cart Successfully',
+    );
     List<Map<String, dynamic>> items_cart =
         cartlist.map((Drink e) => e.toJson()).toList();
 
@@ -124,12 +126,36 @@ class OrderController extends GetxController {
     box.write('items_cart', items_cart);
   }
 
+  //this didn't work
+  //this didn't work
+  //this didn't work
+  /*void changecupsizeOfItemInCart(Drink drink,int cupsize) {
+    if(cupsize==1){
+      cartlist.removeWhere((Drink selectedItem) => selectedItem.id == drink.id);
+      drink.cupsize==1;
+      cartlist.add(drink);
+    }else if(cupsize==2){
+      cartlist.removeWhere((Drink selectedItem) => selectedItem.id == drink.id);
+      drink.cupsize==2;
+      cartlist.add(drink);
+  }else {
+      cartlist.removeWhere((Drink selectedItem) => selectedItem.id == drink.id);
+      drink.cupsize==3;
+      cartlist.add(drink);
+    }
+    List<Map<String, dynamic>> items_cart =
+    cartlist.map((Drink e) => e.toJson()).toList();
+    box.write('items_cart', items_cart);
+  }
+*/
   void removeSelectedItemFromCart(int id) {
     cartlist.removeWhere((Drink selectedItem) => selectedItem.id == id);
-
+    _totalPrice.value == 0;
     List<Map<String, dynamic>> items_cart =
         cartlist.map((Drink e) => e.toJson()).toList();
-
+    showSuccessSnackBar(
+      'Order Removed From Cart Successfully',
+    );
     box.write('items_cart', items_cart);
   }
 
@@ -157,13 +183,13 @@ class OrderController extends GetxController {
     Get.offAllNamed('/splash');
   }
 
-  addToCart() {
-    /*  if (_selectedCupSize.value == 2) {
+  /* addToCart() {
+    */ /*  if (_selectedCupSize.value == 2) {
      // _totalPrice += 5 ;
     }
     if (_selectedCupSize.value == 3) {
      // _totalPrice += 10;
-    }*/
+    }*/ /*
     if (_quantity.value > 0 && _totalPrice.value != 0) {
       _order = Order(
         coffee: _coffee,
@@ -199,19 +225,19 @@ class OrderController extends GetxController {
     } else {
       showErrorSnackBar('Please select quantity');
     }
-  }
+  }*/
 
-  saveOrderToStorage(Order order) {
+  /*saveOrderToStorage(Order order) {
     final _box = GetStorage();
     _box.write('Order', order);
     Order myorder = _box.read('Order');
     print(myorder.coffee?.name.toString());
   }
-
+*/
   @override
   void onInit() {
     super.onInit();
     getCoffeeArgs();
-    _totalPrice.value = _coffee.price * _quantity.value.toDouble();
+    _totalPrice.value = _drink.price * _quantity.value.toDouble();
   }
 }
