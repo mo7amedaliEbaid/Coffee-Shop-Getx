@@ -3,7 +3,7 @@ import 'package:coffee_shop_get/view/widgets/greatday_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../consts/global_constants.dart';
-import '../widgets/greatday_widget.dart';
+import '../../controllers/order_controller.dart';
 import '../widgets/drawer_widget.dart';
 
 class TeaScreen extends StatelessWidget {
@@ -14,6 +14,8 @@ class TeaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _teaController = Get.find<TeaController>();
+    OrderController _ordercontroller=Get.put(OrderController());
+
     return Scaffold(
       backgroundColor: Colors.brown.shade100,
       key: _scaffoldKey,
@@ -43,6 +45,7 @@ class TeaScreen extends StatelessWidget {
                 () => ListView.separated(
                   itemBuilder: (ctx, i) => ListTile(
                     onTap: () {
+                      _ordercontroller.getCoffeeArgs(_teaController.getteaList[i]);
                       _teaController.navigateToOrderScreen(i);
                     },
                     title: Text(

@@ -1,14 +1,10 @@
-import 'package:coffee_shop_get/controllers/search_controller.dart';
 import 'package:coffee_shop_get/view/widgets/greatday_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import '../../consts/app_constants.dart';
 import '../../consts/global_constants.dart';
-import '../widgets/animated_searchbar_widget.dart';
 import '../widgets/drawer_widget.dart';
-import '../widgets/greatday_widget.dart';
-import '../widgets/searchbody_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -36,7 +32,6 @@ class HomeScreen extends StatelessWidget {
           letterSpacing: 2.0,
           fontSize: 36.0,
         );
-    MySearchController _searchcontroller = Get.put(MySearchController());
     return Scaffold(
       backgroundColor: homescafold_color,
       key: _scaffoldKey,
@@ -53,14 +48,18 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          AnimatedSearchBar(),
+          GestureDetector(
+            onTap: () => Get.toNamed(Appconstants.searchroute),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 18.0,horizontal: 30),
+              child: Icon(Icons.search,color: Colors.black,size: 30,),
+            ),
+          )
         ],
       ),
       drawerScrimColor: Colors.black54,
       drawer: MyDrawer(),
-      body: _searchcontroller.getSearchingState == 1
-          ? Searchbody()
-          : SingleChildScrollView(
+      body:  SingleChildScrollView(
               child: Column(
                 children: [
                   kSizedBox,

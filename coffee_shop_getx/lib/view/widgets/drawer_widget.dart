@@ -11,12 +11,12 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     Size size = MediaQuery.of(context).size;
     void _logout() {
       box.erase();
       Get.offAllNamed(Appconstants.splashroute);
     }
-
     return Drawer(
       width: size.width * .7,
       backgroundColor: homescafold_color,

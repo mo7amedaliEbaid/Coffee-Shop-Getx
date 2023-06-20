@@ -1,3 +1,4 @@
+import 'package:coffee_shop_get/controllers/order_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -16,6 +17,7 @@ class CoffeeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _coffeeController = Get.find<CoffeeController>();
+   OrderController _ordercontroller=Get.put(OrderController());
     return Scaffold(
       backgroundColor: authbackcolor,
       key: _scaffoldKey,
@@ -45,6 +47,7 @@ class CoffeeScreen extends StatelessWidget {
                 () => ListView.separated(
                   itemBuilder: (ctx, i) => ListTile(
                     onTap: () {
+                      _ordercontroller.getCoffeeArgs(_coffeeController.getCoffeeList[i]);
                       _coffeeController.navigateToOrderScreen(i);
                     },
                     title: Text(

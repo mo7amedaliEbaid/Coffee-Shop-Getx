@@ -1,6 +1,7 @@
 import 'package:coffee_shop_get/controllers/bindings/cart_binding.dart';
 import 'package:coffee_shop_get/controllers/bindings/coffee_binding.dart';
 import 'package:coffee_shop_get/controllers/bindings/order_binding.dart';
+import 'package:coffee_shop_get/controllers/bindings/search_bending.dart';
 import 'package:coffee_shop_get/controllers/bindings/tea_binding.dart';
 import 'package:coffee_shop_get/view/screens/auth_screen.dart';
 import 'package:coffee_shop_get/view/screens/cart_screen.dart';
@@ -9,6 +10,7 @@ import 'package:coffee_shop_get/view/screens/contactus_screen.dart';
 import 'package:coffee_shop_get/view/screens/home_screen.dart';
 import 'package:coffee_shop_get/view/screens/juice_screen.dart';
 import 'package:coffee_shop_get/view/screens/order_screen.dart';
+import 'package:coffee_shop_get/view/screens/search_screen.dart';
 import 'package:coffee_shop_get/view/screens/splash_screen.dart';
 import 'package:coffee_shop_get/view/screens/tea_screen.dart';
 import 'package:flutter/material.dart';
@@ -76,6 +78,11 @@ class MyApp extends StatelessWidget {
           name: Appconstants.cartroute,
           page: () => CartScreen(),
           binding: CartBinding(),
+        ),
+        GetPage(
+          name: Appconstants.searchroute,
+          page: () => SearchScreen(),
+          binding: SearchBinding(),
         ),
         GetPage(
           name: Appconstants.contactroute,

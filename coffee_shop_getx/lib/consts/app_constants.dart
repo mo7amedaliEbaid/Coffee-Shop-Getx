@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class Appconstants {
 
@@ -12,6 +11,7 @@ class Appconstants {
   static String tearoute = "/tea";
   static String cartroute = "/cart";
   static String contactroute = "/contact";
+  static String searchroute = "/search";
 
 
   static List<String> catsimgs = [

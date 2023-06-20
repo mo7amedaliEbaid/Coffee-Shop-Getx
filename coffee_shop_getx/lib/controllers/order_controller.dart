@@ -29,8 +29,8 @@ class OrderController extends GetxController {
     _selectedSugarCubes.value = val;
   }
 
-  void getCoffeeArgs() {
-    _drink = Get.arguments;
+  void getCoffeeArgs(Drink drink) {
+    _drink = drink;
     print(_drink.name);
   }
 
@@ -127,10 +127,9 @@ class OrderController extends GetxController {
   }
 
 
-
-  @override
+  /*@override
   void onInit() {
     super.onInit();
     getCoffeeArgs();
-  }
+  }*/
 }

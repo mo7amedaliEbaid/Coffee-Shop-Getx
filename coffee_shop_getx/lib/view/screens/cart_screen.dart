@@ -1,5 +1,7 @@
 import 'package:coffee_shop_get/consts/global_constants.dart';
+import 'package:coffee_shop_get/controllers/order_controller.dart';
 import 'package:coffee_shop_get/view/widgets/cartitem_card_widget.dart';
+import 'package:coffee_shop_get/view/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -8,16 +10,28 @@ import '../../controllers/cart_controller.dart';
 
 class CartScreen extends StatelessWidget {
   late CartController controller;
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     controller = Get.find<CartController>();
-
+   // OrderController _ordercontroller = Get.put(OrderController());
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: homescafold_color,
+      drawerScrimColor: Colors.black54,
+      drawer: MyDrawer(),
       appBar: AppBar(
         backgroundColor: appbartitle_color,
         title: const Text("Your Cart"),
+        leading: IconButton(
+          onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+          icon: Icon(
+            Icons.sort,
+            size: 35.0,
+            color: Colors.black,
+          ),
+        ),
       ),
       body: Container(
         margin: const EdgeInsets.all(20.0),
@@ -60,15 +74,12 @@ class CartScreen extends StatelessWidget {
                               onPressed: () {
                                 _confirmationDialog();
                               },
-                             /* style: ElevatedButton.styleFrom(
-                                  primary: Colors.yellow),*/
-                              child: Container(
-                                width: double.infinity,
-                                child: Center(
-                                  child: Text(
-                                    "Proceed",
-                                    style: TextStyle(color: Colors.black),
-                                  ),
+                               style: ElevatedButton.styleFrom(
+                                  primary: authbackcolor),
+                              child: Center(
+                                child: Text(
+                                  "Proceed",
+                                  style: TextStyle(color: Colors.black,fontSize: 17 ),
                                 ),
                               ),
                             ),
@@ -107,9 +118,7 @@ class CartScreen extends StatelessWidget {
       ],
       backgroundColor: Color(0xff4D4D4D),
       titleStyle: TextStyle(
-          color: Colors.white,
-          fontSize: 17,
-          fontWeight: FontWeight.bold),
+          color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
       content: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -135,20 +144,18 @@ class CartScreen extends StatelessWidget {
                     controller.cart[index].name,
                     style: TextStyle(
                         color: Colors.white,
-                        fontFamily: "Poppins",
                         fontWeight: FontWeight.bold,
-                        fontSize: 12),
+                        fontSize: 13),
                   ),
                   subtitle: Text(
-                    "Rp. " +
+                    "\$. " +
                         NumberFormat.currency(decimalDigits: 0, symbol: '')
                             .format(controller.cart[index].price) +
                         " x " +
                         controller.cart[index].qty.toString(),
                     style: TextStyle(
-                        fontFamily: "Poppins",
                         color: Colors.white,
-                        fontSize: 10),
+                        fontSize: 11),
                   ),
                 );
               },
@@ -161,9 +168,8 @@ class CartScreen extends StatelessWidget {
             controller.userSession["name"],
             style: TextStyle(
                 color: Colors.white,
-                fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold,
-                fontSize: 12),
+                fontSize: 14),
           ),
           SizedBox(
             height: 5,
@@ -172,22 +178,20 @@ class CartScreen extends StatelessWidget {
             controller.userSession["email"],
             style: TextStyle(
                 color: Colors.white,
-                fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold,
-                fontSize: 12),
+                fontSize: 14),
           ),
           SizedBox(
             height: 5,
           ),
           Text(
-            "Total Rp. " +
+            "Total \$. " +
                 NumberFormat.currency(decimalDigits: 0, symbol: '')
                     .format(controller.grandTotal.value),
             style: TextStyle(
                 color: Colors.white,
-                fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold,
-                fontSize: 12),
+                fontSize: 14),
           )
         ],
       ),
