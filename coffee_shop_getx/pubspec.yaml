@@ -38,6 +38,7 @@ dependencies:
   intl:
   get_storage:
   badges:
+  url_launcher: ^6.1.10
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +69,7 @@ flutter:
    - images/coffee/
    - images/juice/
    - images/tea/
+   - images/social/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

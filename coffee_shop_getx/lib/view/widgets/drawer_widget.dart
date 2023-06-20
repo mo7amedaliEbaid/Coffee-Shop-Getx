@@ -23,24 +23,34 @@ class MyDrawer extends StatelessWidget {
               )),
           kSizedBox,
           kSizedBox,
-          _buildrawertile(context, "Home", Icons.home_filled),
-          _buildrawertile(context, "Contact Us", Icons.contact_page),
-            _buildrawertile(context, "Your Cart", Icons.shopping_cart),
-          _buildrawertile(context, "Log Out", Icons.logout),
+          InkWell(
+              onTap: () => Get.toNamed(Appconstants.contactroute),
+              child: buildrawertile(context, "Home", Icons.home_filled)),
+          InkWell(
+              onTap: () => Get.toNamed(Appconstants.contactroute),
+              child: buildrawertile(context, "Contact Us", Icons.contact_page)),
+          buildrawertile(context, "Your Cart", Icons.shopping_cart),
+          buildrawertile(context, "Log Out", Icons.logout),
         ],
       ),
     );
   }
+}
 
-  _buildrawertile(BuildContext context, String title, IconData title_ic) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 10),
+Widget buildrawertile(BuildContext context, String title, IconData title_ic) {
+  return Container(
+    padding: EdgeInsets.symmetric(vertical: 10),
     //  color: Colors.brown.shade100,
-      margin: EdgeInsets.symmetric(vertical: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [Text(title,style: Theme.of(context).textTheme.headline6,), Icon(title_ic)],
-      ),
-    );
-  }
+    margin: EdgeInsets.symmetric(vertical: 20),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Text(
+          title,
+          style: Theme.of(context).textTheme.headline6,
+        ),
+        Icon(title_ic)
+      ],
+    ),
+  );
 }

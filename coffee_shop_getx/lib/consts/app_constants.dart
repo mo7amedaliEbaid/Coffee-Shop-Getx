@@ -11,6 +11,7 @@ class Appconstants {
   static String juiceroute = "/juice";
   static String tearoute = "/tea";
   static String cartroute = "/cart";
+  static String contactroute = "/contact";
 
 
   static List<String> catsimgs = [
