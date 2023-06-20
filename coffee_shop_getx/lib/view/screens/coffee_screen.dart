@@ -49,20 +49,20 @@ class CoffeeScreen extends StatelessWidget {
                     },
                     title: Text(
                       _coffeeController.getCoffeeList[i].name,
-                      style: Theme.of(context).textTheme.headline6?.copyWith(
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                             fontSize: 24.0,
                             letterSpacing: 2.0,
                           ),
                     ),
                     subtitle: Text(
                       '\$ ${_coffeeController.getCoffeeList[i].price.toString()}',
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     leading: CircleAvatar(
                       backgroundColor: Colors.brown,
                       child: Text(
                         '${i + 1}',
-                        style: Theme.of(context).textTheme.headline6?.copyWith(
+                        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                               color: Colors.white,
                             ),
                       ),

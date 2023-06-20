@@ -1,7 +1,7 @@
+import 'package:badges/badges.dart'as badges;
 import 'package:badges/badges.dart';
 import 'package:coffee_shop_get/consts/app_constants.dart';
 import 'package:coffee_shop_get/models/drink_model.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
@@ -14,7 +14,8 @@ class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _orderController = Get.find<OrderController>();
-    Size size = MediaQuery.of(context).size;
+   // Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery.sizeOf(context);
     return Scaffold(
       backgroundColor: homescafold_color,
       floatingActionButton: Padding(
@@ -23,7 +24,7 @@ class OrderScreen extends StatelessWidget {
           () => _orderController.cartlist.isNotEmpty
               ? InkWell(
                   onTap: () => Get.toNamed(Appconstants.cartroute),
-                  child: Badge(
+                  child: badges.Badge(
                     child: const Icon(
                       Icons.shopping_cart,
                       size: 40,

@@ -1,3 +1,4 @@
+import 'package:coffee_shop_get/consts/global_constants.dart';
 import 'package:coffee_shop_get/view/widgets/cartitem_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,7 +14,9 @@ class CartScreen extends StatelessWidget {
     controller = Get.find<CartController>();
 
     return Scaffold(
+      backgroundColor: homescafold_color,
       appBar: AppBar(
+        backgroundColor: appbartitle_color,
         title: const Text("Your Cart"),
       ),
       body: Container(
@@ -57,8 +60,8 @@ class CartScreen extends StatelessWidget {
                               onPressed: () {
                                 _confirmationDialog();
                               },
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.yellow),
+                             /* style: ElevatedButton.styleFrom(
+                                  primary: Colors.yellow),*/
                               child: Container(
                                 width: double.infinity,
                                 child: Center(
@@ -105,7 +108,6 @@ class CartScreen extends StatelessWidget {
       backgroundColor: Color(0xff4D4D4D),
       titleStyle: TextStyle(
           color: Colors.white,
-          fontFamily: 'Poppins',
           fontSize: 17,
           fontWeight: FontWeight.bold),
       content: Column(

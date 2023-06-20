@@ -47,20 +47,20 @@ class TeaScreen extends StatelessWidget {
                     },
                     title: Text(
                       _teaController.getteaList[i].name,
-                      style: Theme.of(context).textTheme.headline6?.copyWith(
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                             fontSize: 24.0,
                             letterSpacing: 2.0,
                           ),
                     ),
                     subtitle: Text(
                       '\$ ${_teaController.getteaList[i].price.toString()}',
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     leading: CircleAvatar(
                       backgroundColor: Colors.brown.shade200,
                       child: Text(
                         '${i + 1}',
-                        style: Theme.of(context).textTheme.headline6?.copyWith(
+                        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                               color: Colors.white,
                             ),
                       ),

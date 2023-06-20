@@ -1,11 +1,7 @@
-import 'package:coffee_shop_get/controllers/juice_controller.dart';
-import 'package:coffee_shop_get/controllers/search_controller.dart';
-import 'package:coffee_shop_get/controllers/tea_controller.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controllers/coffee_controller.dart';
+import '../../controllers/search_controller.dart';
 
 class AnimatedSearchBar extends StatefulWidget {
   @override
@@ -18,7 +14,7 @@ class _AnimatedSearchBarState extends State<AnimatedSearchBar> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
-    SearchController _searchController=Get.put(SearchController());
+    MySearchController _searchController=Get.put(MySearchController());
 
     return AnimatedContainer(
       duration: Duration(milliseconds: 400),
@@ -71,11 +67,11 @@ class _AnimatedSearchBarState extends State<AnimatedSearchBar> {
                     color: Colors.black,
                   ):InkWell(
                     onTap: (){
-                      setState(() {
-                        _folded = !_folded;
+                     // setState(() {
+                    //    _folded = !_folded;
                        // _searchController.setSearchingstate(0);
                         //_textEditingController.clear();
-                      });
+                    //  });
 
                     },
                     child: Container(

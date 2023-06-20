@@ -21,22 +21,22 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle? coffeestyle = Theme.of(context).textTheme.headline5?.copyWith(
+    TextStyle? coffeestyle = Theme.of(context).textTheme.headlineSmall?.copyWith(
           color: Colors.brown,
           letterSpacing: 2.0,
           fontSize: 36.0,
         );
-    TextStyle? juicestyle = Theme.of(context).textTheme.headline5?.copyWith(
+    TextStyle? juicestyle = Theme.of(context).textTheme.headlineSmall?.copyWith(
           color: Colors.red,
           letterSpacing: 2.0,
           fontSize: 36.0,
         );
-    TextStyle? teastyle = Theme.of(context).textTheme.headline5?.copyWith(
+    TextStyle? teastyle = Theme.of(context).textTheme.headlineSmall?.copyWith(
           color: teacolor,
           letterSpacing: 2.0,
           fontSize: 36.0,
         );
-    SearchController _searchcontroller = Get.put(SearchController());
+    MySearchController _searchcontroller = Get.put(MySearchController());
     return Scaffold(
       backgroundColor: homescafold_color,
       key: _scaffoldKey,

@@ -42,6 +42,8 @@ class CartItemCard extends StatelessWidget {
             ),
           ),
           kSizedBox,
+          kSizedBox,
+          kSizedBox,
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,9 +55,9 @@ class CartItemCard extends StatelessWidget {
                 ),
                 kSizedBox,
                 Text(
-                  "${NumberFormat.currency(decimalDigits: 0, symbol: '').format(drink.price)} \$",
+                  "Price: ${NumberFormat.currency(decimalDigits: 0, symbol: '').format(drink.price)} \$",
                 ),
-                const SizedBox(height: 10.0),
+                kSizedBox,
                 Text(
                   "Total • ${NumberFormat.currency(decimalDigits: 0, symbol: '').format(drink.price * drink.qty)} \$",
                 ),
@@ -89,14 +91,6 @@ class CartItemCard extends StatelessWidget {
   Widget _buildQty() {
     return Row(
       children: [
-        /*ElevatedButton.icon(
-          icon: Icon(Icons.delete),
-          style: ElevatedButton.styleFrom(
-            primary: Colors.red,
-          ),
-          onPressed: () => controller.removeSelectedItemFromCart(drink.id),
-          label: Text("Remove"),
-        ),*/
         IconButton(
           onPressed: () =>
               controller.decreaseQtyOfSelectedItemInCart(index, drink),

@@ -1,9 +1,9 @@
 import 'package:coffee_shop_get/dummy_data/dummy_data.dart';
 import 'package:get/get.dart';
-
+import 'package:flutter/material.dart';
 import '../models/drink_model.dart';
 
-class SearchController extends GetxController {
+class MySearchController extends GetxController {
   RxList<Drink> _alldrinkslist = [...coffeelist, ...juicelist, ...tealist].obs;
   List<Drink> searchedfordrinks = [];
   var _isearching = 0.obs;
