@@ -1,12 +1,10 @@
 import 'package:badges/badges.dart';
 import 'package:coffee_shop_get/consts/app_constants.dart';
-import 'package:coffee_shop_get/controllers/cart_controller.dart';
 import 'package:coffee_shop_get/models/drink_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import '../../consts/global_constants.dart';
 import '../../controllers/order_controller.dart';
 
@@ -18,6 +16,7 @@ class OrderScreen extends StatelessWidget {
     _orderController = Get.find<OrderController>();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: homescafold_color,
       floatingActionButton: Padding(
         padding: const EdgeInsets.fromLTRB(18.0, 0, 18, 60),
         child: Obx(
@@ -58,7 +57,6 @@ class OrderScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // getHeaderWithQuantity(context),
                     SizedBox(
                       height: size.height * .035,
                     ),
@@ -84,7 +82,6 @@ class OrderScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                 //  buildTotalAmountWidget(context),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
@@ -117,18 +114,17 @@ class OrderScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return SliverAppBar(
-      backgroundColor: homescafold_color,
+      backgroundColor: authbackcolor,
       expandedHeight: size.height * .4,
       pinned: true,
       snap: true,
       floating: true,
       flexibleSpace: FlexibleSpaceBar(
-          // centerTitle: true,
 
           title: Text(
             _orderController.getdrink.name,
             style: Theme.of(context).textTheme.headline5?.copyWith(
-                color: Colors.black, backgroundColor: homescafold_color),
+                color: Colors.black, backgroundColor: authbackcolor),
           ),
           background: Container(
             decoration: BoxDecoration(
@@ -331,33 +327,4 @@ class OrderScreen extends StatelessWidget {
       ],
     );
   }
-
- /* Widget buildTotalAmountWidget(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "Total • ${NumberFormat.currency(decimalDigits: 0, symbol: '').format(_orderController.getdrink.price * _orderController.getdrink.qty)} \$",
-                              style: Theme.of(context).textTheme.headline5,
-                            ),
-         *//* Text(
-            'Total Amount:',
-            style: Theme.of(context).textTheme.headline5,
-          ),*//*
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Obx(
-            () => Text(
-              '\$ ${_orderController.getTotalPrice}',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline5,
-            ),
-          ),
-        ),
-      ],
-    );
-  }*/
 }
