@@ -15,12 +15,15 @@ Custom ScrollView,  Drawer.
 
     
 ![alt text](https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/blob/master/coffee_shop_getx/screen_shots/login.jpg?raw=true)
-  
-
-                                  ![alt text](https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/blob/master/coffee_shop_getx/screen_shots/drawer.jpg?raw=true)
 
 
-          ![alt text](https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/blob/master/coffee_shop_getx/screen_shots/cart.jpg?raw=true)
+   
+![alt text](https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/blob/master/coffee_shop_getx/screen_shots/drawer.jpg?raw=true)
+
+
+
+
+![alt text](https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/blob/master/coffee_shop_getx/screen_shots/cart.jpg?raw=true)
   
   
        
