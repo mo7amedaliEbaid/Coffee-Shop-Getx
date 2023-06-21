@@ -7,7 +7,7 @@ cart and search are provided.
 Getx, Get Storage,      
 MVC Pattern, Controllers,     
 Dependency injection, Bindings,    
-Url Launcher, Badge,
+Url Launcher, Badge,    
 Ecommerce, Cart,     
 Auth, Search,        
 Custom ScrollView,  Drawer.      
