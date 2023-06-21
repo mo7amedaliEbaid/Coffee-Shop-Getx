@@ -1,7 +1,7 @@
 # Coffee-Shop-Getx
 
-A flutter app to manage orders. 
-,products and sales of a coffee shop using getx state management and get storage,   
+A flutter app to manage orders,     
+products and sales of a coffee shop using getx state management and get storage,   
 cart and search engine are provided. 
 # Keywords 
 Getx. 
