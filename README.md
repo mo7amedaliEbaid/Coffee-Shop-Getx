@@ -3,6 +3,12 @@
 A flutter app to manage orders,     
 products and sales of a coffee shop using getx state management and get storage,   
 cart and search are provided. 
+## APK : 
+https://drive.google.com/drive/folders/1FzLjBrKXswB-yJOgyDAKqSNyyuPsd4wl
+
+  ## Video : 
+  https://drive.google.com/drive/folders/1arlI-eLGWhGSsdWMB_OUyx5aZZ9Tt6Ks
+  
 ## Keywords 
 Getx, Get Storage,      
 MVC Pattern, Controllers,     
