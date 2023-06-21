@@ -58,7 +58,7 @@ Widget buildrawertile(BuildContext context, String title, IconData title_ic) {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
         Icon(title_ic)
       ],
