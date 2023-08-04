@@ -24,8 +24,8 @@ class CartController extends GetxController {
 
     box.write('items_cart', items_cart);
   }
-  void decreaseQtyOfSelectedItemInCart(int index, Drink airsoft) {
-    if (airsoft.qty == 1) {
+  void decreaseQtyOfSelectedItemInCart(int index, Drink drink) {
+    if (drink.qty == 1) {
       cart.removeAt(index);
     } else {
       cart[index].qty--;

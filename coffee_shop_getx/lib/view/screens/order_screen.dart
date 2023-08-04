@@ -147,9 +147,7 @@ class OrderScreen extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .7,
           child: ElevatedButton(
             onPressed: () {
-              //  _orderController.addToCart();
               _orderController.addItemToCart(drink);
-             // _orderController.addQuantity();
             },
             child: Text("Add To Cart"),
           ),
