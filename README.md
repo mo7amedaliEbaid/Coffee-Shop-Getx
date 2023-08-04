@@ -1,8 +1,13 @@
 # Coffee-Shop-Getx
+A Flutter app to display products ,manage orders and sales of a coffee shop, It is based on local database, Cart and contact us screens are provided...
 
-A flutter app to manage orders,products and sales of a coffee shop using getx state management and get storage, cart and search are provided.
+## State Management
+- Getx
 
-## Directory Structure (GetX version)
+## Design Pattern
+- MVC Pattern
+
+## Directory Structure
 
 ```
 📂lib
@@ -26,10 +31,10 @@ A flutter app to manage orders,products and sales of a coffee shop using getx st
  |    |   |──order_screen.dart
  |    |   |──search_screen.dart
  |    |   └──contactus_screen.dart
- |    │───📂widget
- |    |   |──cart_item_widget.dart
- │    |   |──drawer_widget.dart
- |    |   └──greatday_widget.dart
+ |    └───📂widget
+ |        |──cart_item_widget.dart
+ │        |──drawer_widget.dart
+ |        └──greatday_widget.dart
  └────📂controllers
       └──📂bindings
       |   |──auth_binding.dart
@@ -51,38 +56,19 @@ A flutter app to manage orders,products and sales of a coffee shop using getx st
       
 ```
 
-## APK : 
-https://drive.google.com/drive/folders/1FzLjBrKXswB-yJOgyDAKqSNyyuPsd4wl
-
-  ## Video : 
-  https://drive.google.com/drive/folders/1arlI-eLGWhGSsdWMB_OUyx5aZZ9Tt6Ks
-  
-## Features:
-
-
-Getx, Get Storage,      
-MVC Pattern, Controllers,     
-Dependency injection, Bindings,    
-Url Launcher, Badge,    
-Ecommerce, Cart,     
-Auth, Search,        
-Custom ScrollView,  Drawer.     
-## Screen Shots      
+## Screenshots
+<br />
+<p float="left">
+  <img src="https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/blob/9ece98a6fe42bb40c1a755024797d72d0f7a0c99/coffee_shop_getx/screen_shots/drawer.jpg" width="170" />
+  <img src="https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/blob/9ece98a6fe42bb40c1a755024797d72d0f7a0c99/coffee_shop_getx/screen_shots/login.jpg" width="170" /> 
+  <img src="https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/blob/9ece98a6fe42bb40c1a755024797d72d0f7a0c99/coffee_shop_getx/screen_shots/order.jpg" width="170" />
+   <img src="https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/blob/9ece98a6fe42bb40c1a755024797d72d0f7a0c99/coffee_shop_getx/screen_shots/cart.jpg" width="170" />
+</p>     
 
     
-![alt text](https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/blob/master/coffee_shop_getx/screen_shots/login.jpg?raw=true)
 
-
-   
-![alt text](https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/blob/master/coffee_shop_getx/screen_shots/drawer.jpg?raw=true)
-
-
-
-
-![alt text](https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/blob/master/coffee_shop_getx/screen_shots/cart.jpg?raw=true)
   
   
        
-  
-  for more screen shots visit coffee_shop_getx/screen_shots
+
   
