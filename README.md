@@ -8,6 +8,8 @@ https://drive.google.com/drive/folders/1FzLjBrKXswB-yJOgyDAKqSNyyuPsd4wl
   https://drive.google.com/drive/folders/1arlI-eLGWhGSsdWMB_OUyx5aZZ9Tt6Ks
   
 ## Keywords and Cocepts:
+
+
 Getx, Get Storage,      
 MVC Pattern, Controllers,     
 Dependency injection, Bindings,    
