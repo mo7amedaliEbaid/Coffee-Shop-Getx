@@ -1,4 +1,4 @@
-# Coffee-Shop-Getx
+# Coffee Shop
 A Flutter app to display products ,manage orders and sales of a coffee shop, It is based on local database, Cart and contact us screens are provided...
 
 ## State Management
@@ -55,6 +55,11 @@ A Flutter app to display products ,manage orders and sales of a coffee shop, It 
       └──tea_controller.dart
       
 ```
+## Demo Video
+<a href="https://youtu.be/QYy22wzATik"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png" width="170"></img></a>
+
+## Download App
+<a href="https://github.com/mo7amedaliEbaid/Coffee-Shop-Getx/releases/download/v1.0.0/coffeeshop.apk"><img src="https://playerzon.com/asset/download.png" width="170"></img></a>
 
 ## Screenshots
 <br />
