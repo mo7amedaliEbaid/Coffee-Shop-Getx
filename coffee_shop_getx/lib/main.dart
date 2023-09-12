@@ -22,7 +22,7 @@ import 'controllers/bindings/juice_binding.dart';
 import 'controllers/bindings/splash_binding.dart';
 
 
-void main() async{
+void main() async {
   await WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
