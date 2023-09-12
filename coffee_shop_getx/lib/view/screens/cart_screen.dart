@@ -15,7 +15,7 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     controller = Get.find<CartController>();
-   // OrderController _ordercontroller = Get.put(OrderController());
+    // OrderController _ordercontroller = Get.put(OrderController());
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: homescafold_color,
@@ -36,59 +36,60 @@ class CartScreen extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.all(20.0),
         child: Obx(
-          () => controller.cart.isEmpty
+              () =>
+          controller.cart.isEmpty
               ? const Center(
-                  child: Text("Your cart is empty"),
-                )
+            child: Text("Your cart is empty"),
+          )
               : Padding(
-                  padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(5.0),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.separated(
+                    itemCount: controller.cart.length,
+                    separatorBuilder: (_, __) => Divider(),
+                    itemBuilder: (context, index) {
+                      return CartItemCard(
+                        drink: controller.cart[index],
+                        index: index,
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: ListView.separated(
-                          itemCount: controller.cart.length,
-                          separatorBuilder: (_, __) => Divider(),
-                          itemBuilder: (context, index) {
-                            return CartItemCard(
-                              drink: controller.cart[index],
-                              index: index,
-                            );
-                          },
-                        ),
+                      Text(
+                        "Grand Total : \$. ${NumberFormat.currency(
+                          decimalDigits: 0,
+                          symbol: '',
+                        ).format(
+                          controller.grandTotal.value,
+                        )}",
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Grand Total : \$. ${NumberFormat.currency(
-                                decimalDigits: 0,
-                                symbol: '',
-                              ).format(
-                                controller.grandTotal.value,
-                              )}",
-                            ),
-                            ElevatedButton(
-                              onPressed: () {
-                                _confirmationDialog();
-                              },
-                               style: ElevatedButton.styleFrom(
-                                  primary: authbackcolor),
-                              child: Center(
-                                child: Text(
-                                  "Proceed",
-                                  style: TextStyle(color: Colors.black,fontSize: 17 ),
-                                ),
-                              ),
-                            ),
-                          ],
+                      ElevatedButton(
+                        onPressed: () {
+                          _confirmationDialog();
+                        },
+                        style: ElevatedButton.styleFrom(
+                            primary: authbackcolor),
+                        child: Center(
+                          child: Text(
+                            "Proceed",
+                            style: TextStyle(color: Colors.black, fontSize: 17),
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
+              ],
+            ),
+          ),
         ),
       ),
     );

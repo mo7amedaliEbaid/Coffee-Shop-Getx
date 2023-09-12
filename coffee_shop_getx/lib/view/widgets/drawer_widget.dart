@@ -11,8 +11,9 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
     void _logout() {
       box.erase();
       Get.offAllNamed(Appconstants.splashroute);
@@ -58,7 +59,10 @@ Widget buildrawertile(BuildContext context, String title, IconData title_ic) {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.titleMedium,
+          style: Theme
+              .of(context)
+              .textTheme
+              .titleMedium,
         ),
         Icon(title_ic)
       ],

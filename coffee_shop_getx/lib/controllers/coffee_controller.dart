@@ -13,7 +13,7 @@ class CoffeeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    List<Drink> list=coffeelist;
+    List<Drink> list = coffeelist;
     _coffeeList.addAll(list);
   }
 

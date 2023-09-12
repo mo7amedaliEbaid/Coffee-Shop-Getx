@@ -10,18 +10,20 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     controller = Get.find<AuthController>();
-    Size size=MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
       backgroundColor: authbackcolor,
       body: Container(
-        padding:  EdgeInsets.all(30.0),
+        padding: EdgeInsets.all(30.0),
         child: ListView(
           children: [
-             Center(
+            Center(
               child: Text("Coffee Shop",
                   style: titlestyle),
             ),
-             SizedBox(height: size.height*.12),
+            SizedBox(height: size.height * .12),
             Form(
               key: controller.globalKey,
               child: Column(
@@ -40,14 +42,14 @@ class AuthScreen extends StatelessWidget {
                       errorStyle: TextStyle(color: Colors.white),
                     ),
                     style: const TextStyle(
-                        color: Colors.red, ),
+                      color: Colors.red,),
                     validator: (String? val) =>
-                        val!.trim().isEmpty ? "Please insert name" : null,
+                    val!.trim().isEmpty ? "Please insert name" : null,
                     onSaved: (String? value) {
                       controller.name = value!;
                     },
                   ),
-                   SizedBox(height:  size.height*.03),
+                  SizedBox(height: size.height * .03),
                   TextFormField(
                     decoration: const InputDecoration(
                       enabledBorder: UnderlineInputBorder(
@@ -60,51 +62,52 @@ class AuthScreen extends StatelessWidget {
                       errorStyle: TextStyle(color: Colors.white),
                     ),
                     style: const TextStyle(
-                        color: Colors.red,),
+                      color: Colors.red,),
                     validator: (String? val) =>
-                        val!.trim().isEmpty ? "Please insert email" : null,
+                    val!.trim().isEmpty ? "Please insert email" : null,
                     onSaved: (String? value) {
                       controller.email = value!;
                     },
                   ),
-                   SizedBox(height:size.height*.03),
+                  SizedBox(height: size.height * .03),
                   Obx(
-                    () => TextFormField(
-                      obscureText: controller.isObsecure.value,
-                      decoration: InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white24),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white24,
-                        labelText: "Password",
-                        labelStyle: TextStyle(color: Colors.white),
-                        errorStyle: TextStyle(color: Colors.white),
-                        suffixIcon: InkWell(
-                          onTap: () {
-                            controller.toggleObsecure();
-                          },
-                          child: controller.isObsecure.value
-                              ? Icon(
-                                  Icons.visibility,
-                                  color: Colors.white,
-                                )
-                              : Icon(
-                                  Icons.visibility_off,
-                                  color: Colors.white,
-                                ),
-                        ),
-                      ),
-                      style: const TextStyle(
-                          color: Colors.red),
-                      validator: (String? val) =>
+                        () =>
+                        TextFormField(
+                          obscureText: controller.isObsecure.value,
+                          decoration: InputDecoration(
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white24),
+                            ),
+                            filled: true,
+                            fillColor: Colors.white24,
+                            labelText: "Password",
+                            labelStyle: TextStyle(color: Colors.white),
+                            errorStyle: TextStyle(color: Colors.white),
+                            suffixIcon: InkWell(
+                              onTap: () {
+                                controller.toggleObsecure();
+                              },
+                              child: controller.isObsecure.value
+                                  ? Icon(
+                                Icons.visibility,
+                                color: Colors.white,
+                              )
+                                  : Icon(
+                                Icons.visibility_off,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          style: const TextStyle(
+                              color: Colors.red),
+                          validator: (String? val) =>
                           val!.trim().isEmpty ? "Please insert password" : null,
-                      onSaved: (String? value) {
-                        controller.password = value!;
-                      },
-                    ),
+                          onSaved: (String? value) {
+                            controller.password = value!;
+                          },
+                        ),
                   ),
-                   SizedBox(height:size.height*.08),
+                  SizedBox(height: size.height * .08),
                   ElevatedButton(
                     onPressed: () {
                       controller.saveSession();

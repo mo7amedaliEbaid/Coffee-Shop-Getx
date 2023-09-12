@@ -17,7 +17,7 @@ class CoffeeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _coffeeController = Get.find<CoffeeController>();
-   OrderController _ordercontroller=Get.put(OrderController());
+    OrderController _ordercontroller = Get.put(OrderController());
     return Scaffold(
       backgroundColor: authbackcolor,
       key: _scaffoldKey,
@@ -44,39 +44,54 @@ class CoffeeScreen extends StatelessWidget {
             kSizedBox,
             Expanded(
               child: Obx(
-                () => ListView.separated(
-                  itemBuilder: (ctx, i) => ListTile(
-                    onTap: () {
-                      _ordercontroller.getCoffeeArgs(_coffeeController.getCoffeeList[i]);
-                      _coffeeController.navigateToOrderScreen(i);
-                    },
-                    title: Text(
-                      _coffeeController.getCoffeeList[i].name,
-                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                            fontSize: 24.0,
-                            letterSpacing: 2.0,
-                          ),
-                    ),
-                    subtitle: Text(
-                      '\$ ${_coffeeController.getCoffeeList[i].price.toString()}',
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.brown,
-                      child: Text(
-                        '${i + 1}',
-                        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                              color: Colors.white,
+                    () =>
+                    ListView.separated(
+                      itemBuilder: (ctx, i) =>
+                          ListTile(
+                            onTap: () {
+                              _ordercontroller.getCoffeeArgs(
+                                  _coffeeController.getCoffeeList[i]);
+                              _coffeeController.navigateToOrderScreen(i);
+                            },
+                            title: Text(
+                              _coffeeController.getCoffeeList[i].name,
+                              style: Theme
+                                  .of(context)
+                                  .textTheme
+                                  .headlineSmall
+                                  ?.copyWith(
+                                fontSize: 24.0,
+                                letterSpacing: 2.0,
+                              ),
                             ),
-                      ),
+                            subtitle: Text(
+                              '\$ ${_coffeeController.getCoffeeList[i].price
+                                  .toString()}',
+                              style: Theme
+                                  .of(context)
+                                  .textTheme
+                                  .headlineSmall,
+                            ),
+                            leading: CircleAvatar(
+                              backgroundColor: Colors.brown,
+                              child: Text(
+                                '${i + 1}',
+                                style: Theme
+                                    .of(context)
+                                    .textTheme
+                                    .headlineSmall
+                                    ?.copyWith(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            trailing: Icon(
+                              Icons.arrow_forward_ios,
+                            ),
+                          ),
+                      separatorBuilder: (_, __) => Divider(),
+                      itemCount: _coffeeController.getCoffeeList.length,
                     ),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                    ),
-                  ),
-                  separatorBuilder: (_, __) => Divider(),
-                  itemCount: _coffeeController.getCoffeeList.length,
-                ),
               ),
             ),
           ],

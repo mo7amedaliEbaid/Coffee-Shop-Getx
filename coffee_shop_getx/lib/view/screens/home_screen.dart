@@ -17,21 +17,33 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle? coffeestyle = Theme.of(context).textTheme.headlineSmall?.copyWith(
-          color: Colors.brown,
-          letterSpacing: 2.0,
-          fontSize: 36.0,
-        );
-    TextStyle? juicestyle = Theme.of(context).textTheme.headlineSmall?.copyWith(
-          color: Colors.red,
-          letterSpacing: 2.0,
-          fontSize: 36.0,
-        );
-    TextStyle? teastyle = Theme.of(context).textTheme.headlineSmall?.copyWith(
-          color: teacolor,
-          letterSpacing: 2.0,
-          fontSize: 36.0,
-        );
+    TextStyle? coffeestyle = Theme
+        .of(context)
+        .textTheme
+        .headlineSmall
+        ?.copyWith(
+      color: Colors.brown,
+      letterSpacing: 2.0,
+      fontSize: 36.0,
+    );
+    TextStyle? juicestyle = Theme
+        .of(context)
+        .textTheme
+        .headlineSmall
+        ?.copyWith(
+      color: Colors.red,
+      letterSpacing: 2.0,
+      fontSize: 36.0,
+    );
+    TextStyle? teastyle = Theme
+        .of(context)
+        .textTheme
+        .headlineSmall
+        ?.copyWith(
+      color: teacolor,
+      letterSpacing: 2.0,
+      fontSize: 36.0,
+    );
     return Scaffold(
       backgroundColor: homescafold_color,
       key: _scaffoldKey,
@@ -51,55 +63,61 @@ class HomeScreen extends StatelessWidget {
           GestureDetector(
             onTap: () => Get.toNamed(Appconstants.searchroute),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 18.0,horizontal: 30),
-              child: Icon(Icons.search,color: Colors.black,size: 30,),
+              padding: const EdgeInsets.symmetric(
+                  vertical: 18.0, horizontal: 30),
+              child: Icon(Icons.search, color: Colors.black, size: 30,),
             ),
           )
         ],
       ),
       drawerScrimColor: Colors.black54,
       drawer: MyDrawer(),
-      body:  SingleChildScrollView(
-              child: Column(
-                children: [
-                  kSizedBox,
-                  greatday(context, title, hometitle_color),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * .08,
-                  ),
-                  InkWell(
-                    onTap: () => Get.toNamed(Appconstants.coffeeroute),
-                    child: buildcategorytile(context, Appconstants.catsimgs[0],
-                        cat1, coffeestyle!, authbackcolor),
-                  ),
-                  kSizedBox,
-                  InkWell(
-                    onTap: () => Get.toNamed(Appconstants.juiceroute),
-                    child: buildcategorytile(context, Appconstants.catsimgs[1],
-                        cat2, juicestyle!, Colors.orangeAccent.shade100),
-                  ),
-                  kSizedBox,
-                  InkWell(
-                    onTap: () => Get.toNamed(Appconstants.tearoute),
-                    child: buildcategorytile(context, Appconstants.catsimgs[2],
-                        cat3, teastyle!, Colors.brown.shade200),
-                  ),
-                ],
-              ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            kSizedBox,
+            greatday(context, title, hometitle_color),
+            SizedBox(
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * .08,
             ),
+            InkWell(
+              onTap: () => Get.toNamed(Appconstants.coffeeroute),
+              child: buildcategorytile(context, Appconstants.catsimgs[0],
+                  cat1, coffeestyle!, authbackcolor),
+            ),
+            kSizedBox,
+            InkWell(
+              onTap: () => Get.toNamed(Appconstants.juiceroute),
+              child: buildcategorytile(context, Appconstants.catsimgs[1],
+                  cat2, juicestyle!, Colors.orangeAccent.shade100),
+            ),
+            kSizedBox,
+            InkWell(
+              onTap: () => Get.toNamed(Appconstants.tearoute),
+              child: buildcategorytile(context, Appconstants.catsimgs[2],
+                  cat3, teastyle!, Colors.brown.shade200),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
 
 Widget buildcategorytile(BuildContext context, String assetimage, String cat,
     TextStyle catstyle, Color catcolor) {
-  Size size = MediaQuery.of(context).size;
+  Size size = MediaQuery
+      .of(context)
+      .size;
   return Container(
     height: size.height * .18,
     width: size.width,
     padding: EdgeInsets.symmetric(vertical: 28, horizontal: 10),
     decoration:
-        BoxDecoration(color: catcolor, borderRadius: BorderRadius.circular(20)),
+    BoxDecoration(color: catcolor, borderRadius: BorderRadius.circular(20)),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

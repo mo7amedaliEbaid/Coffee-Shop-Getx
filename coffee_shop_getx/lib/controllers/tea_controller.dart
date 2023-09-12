@@ -11,7 +11,7 @@ class TeaController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    List<Drink> list=tealist;
+    List<Drink> list = tealist;
     _teaList.addAll(list);
   }
 

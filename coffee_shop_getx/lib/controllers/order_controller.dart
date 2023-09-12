@@ -59,7 +59,7 @@ class OrderController extends GetxController {
       'Order Added To Cart Successfully',
     );
     List<Map<String, dynamic>> items_cart =
-        cartlist.map((Drink e) => e.toJson()).toList();
+    cartlist.map((Drink e) => e.toJson()).toList();
 
     box.write('items_cart', items_cart);
   }
@@ -83,7 +83,7 @@ class OrderController extends GetxController {
       cartlist.add(drink);
     }
     List<Map<String, dynamic>> items_cart =
-        cartlist.map((Drink e) => e.toJson()).toList();
+    cartlist.map((Drink e) => e.toJson()).toList();
     box.write('items_cart', items_cart);
   }
 
@@ -93,14 +93,14 @@ class OrderController extends GetxController {
     cartlist.add(drink);
 
     List<Map<String, dynamic>> items_cart =
-        cartlist.map((Drink e) => e.toJson()).toList();
+    cartlist.map((Drink e) => e.toJson()).toList();
     box.write('items_cart', items_cart);
   }
 
   void removeSelectedItemFromCart(int id) {
     cartlist.removeWhere((Drink selectedItem) => selectedItem.id == id);
     List<Map<String, dynamic>> items_cart =
-        cartlist.map((Drink e) => e.toJson()).toList();
+    cartlist.map((Drink e) => e.toJson()).toList();
     showSuccessSnackBar(
       'Order Removed From Cart Successfully',
     );
@@ -112,7 +112,7 @@ class OrderController extends GetxController {
       List<dynamic> value = GetStorage().read('items_cart');
       if (value is List) {
         List<Drink> getModelFromSession =
-            value.map((e) => Drink.fromMap(e)).toList();
+        value.map((e) => Drink.fromMap(e)).toList();
         cartlist.clear();
         cartlist.addAll(getModelFromSession);
       }
@@ -127,7 +127,7 @@ class OrderController extends GetxController {
   }
 
 
-  /*@override
+/*@override
   void onInit() {
     super.onInit();
     getCoffeeArgs();

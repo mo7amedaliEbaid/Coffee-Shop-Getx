@@ -31,7 +31,7 @@ class _SearchScreenState extends State<SearchScreen> {
               onTap: () => Get.offAllNamed(Appconstants.homeroute),
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 18.0, horizontal: 30),
+                const EdgeInsets.symmetric(vertical: 18.0, horizontal: 30),
                 child: Icon(
                   Icons.clear,
                   color: Colors.black,
@@ -49,7 +49,10 @@ class _SearchScreenState extends State<SearchScreen> {
                       controller: _textEditingController,
                       decoration: InputDecoration(
                         hintText: 'Search...',
-                        hintStyle: Theme.of(context).textTheme.titleMedium,
+                        hintStyle: Theme
+                            .of(context)
+                            .textTheme
+                            .titleMedium,
                         border: InputBorder.none,
                       ),
                       onSubmitted: (searchedvalue) {
@@ -73,55 +76,64 @@ class _SearchScreenState extends State<SearchScreen> {
                 kSizedBox,
                 _controller.searchedfordrinks.length == 0
                     ? Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 58.0, vertical: 200),
-                        child: Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      )
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 58.0, vertical: 200),
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                )
                     : Container(
-                        height: MediaQuery.sizeOf(context).height,
-                        child: ListView.separated(
-                          itemBuilder: (ctx, i) => ListTile(
-                            onTap: () {
-                              _ordercontroller.getCoffeeArgs(
-                                  _controller.searchedfordrinks[i]);
-                              Get.toNamed(Appconstants.orderroute);
-                            },
-                            title: Text(
-                              _controller.searchedfordrinks[i].name,
-                              style: Theme.of(context)
+                  height: MediaQuery
+                      .sizeOf(context)
+                      .height,
+                  child: ListView.separated(
+                    itemBuilder: (ctx, i) =>
+                        ListTile(
+                          onTap: () {
+                            _ordercontroller.getCoffeeArgs(
+                                _controller.searchedfordrinks[i]);
+                            Get.toNamed(Appconstants.orderroute);
+                          },
+                          title: Text(
+                            _controller.searchedfordrinks[i].name,
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                              fontSize: 24.0,
+                              letterSpacing: 2.0,
+                            ),
+                          ),
+                          subtitle: Text(
+                            '\$ ${_controller.searchedfordrinks[i].price
+                                .toString()}',
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .titleLarge,
+                          ),
+                          leading: CircleAvatar(
+                            backgroundColor: Colors.orange,
+                            child: Text(
+                              '${i + 1}',
+                              style: Theme
+                                  .of(context)
                                   .textTheme
                                   .titleMedium
                                   ?.copyWith(
-                                    fontSize: 24.0,
-                                    letterSpacing: 2.0,
-                                  ),
-                            ),
-                            subtitle: Text(
-                              '\$ ${_controller.searchedfordrinks[i].price.toString()}',
-                              style: Theme.of(context).textTheme.titleLarge,
-                            ),
-                            leading: CircleAvatar(
-                              backgroundColor: Colors.orange,
-                              child: Text(
-                                '${i + 1}',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium
-                                    ?.copyWith(
-                                      color: Colors.white,
-                                    ),
+                                color: Colors.white,
                               ),
                             ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                            ),
                           ),
-                          separatorBuilder: (_, __) => Divider(),
-                          itemCount: _controller.searchedfordrinks.length,
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                          ),
                         ),
-                      ),
+                    separatorBuilder: (_, __) => Divider(),
+                    itemCount: _controller.searchedfordrinks.length,
+                  ),
+                ),
               ],
             ),
           ),

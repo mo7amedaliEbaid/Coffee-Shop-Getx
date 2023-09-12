@@ -1,4 +1,4 @@
-import 'package:badges/badges.dart'as badges;
+import 'package:badges/badges.dart' as badges;
 import 'package:badges/badges.dart';
 import 'package:coffee_shop_get/consts/app_constants.dart';
 import 'package:coffee_shop_get/models/drink_model.dart';
@@ -14,37 +14,38 @@ class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _orderController = Get.find<OrderController>();
-   // Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     Size size = MediaQuery.sizeOf(context);
     return Scaffold(
       backgroundColor: homescafold_color,
       floatingActionButton: Padding(
         padding: const EdgeInsets.fromLTRB(18.0, 0, 18, 60),
         child: Obx(
-          () => _orderController.cartlist.isNotEmpty
+              () =>
+          _orderController.cartlist.isNotEmpty
               ? InkWell(
-                  onTap: () => Get.toNamed(Appconstants.cartroute),
-                  child: badges.Badge(
-                    child: const Icon(
-                      Icons.shopping_cart,
-                      size: 40,
-                      color: Colors.pink,
-                    ),
-                    badgeStyle: BadgeStyle(
-                      badgeColor: Colors.red,
-                    ),
-                    badgeContent: Padding(
-                      padding: const EdgeInsets.all(0),
-                      child: Text(
-                        '${_orderController.cartlist.length}',
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+            onTap: () => Get.toNamed(Appconstants.cartroute),
+            child: badges.Badge(
+              child: const Icon(
+                Icons.shopping_cart,
+                size: 40,
+                color: Colors.pink,
+              ),
+              badgeStyle: BadgeStyle(
+                badgeColor: Colors.red,
+              ),
+              badgeContent: Padding(
+                padding: const EdgeInsets.all(0),
+                child: Text(
+                  '${_orderController.cartlist.length}',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
-                )
+                ),
+              ),
+            ),
+          )
               : Container(),
         ),
       ),
@@ -61,33 +62,42 @@ class OrderScreen extends StatelessWidget {
                     SizedBox(
                       height: size.height * .035,
                     ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Price:',
-                          style: Theme.of(context).textTheme.headline5,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Price:',
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .headline5,
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child:/* Obx(
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: /* Obx(
                               () =>*/ Text(
                             '\$ ${_orderController.getdrink.price}',
                             textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.headline5,
-                         // ),
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .headline5,
+                            // ),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Cup-Size:',
-                        style: Theme.of(context).textTheme.headline5,
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .headline5,
                       ),
                     ),
                     buildCupSizeWidget(context),
@@ -95,7 +105,10 @@ class OrderScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Sugar (in cubes):',
-                        style: Theme.of(context).textTheme.headline5,
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .headline5,
                       ),
                     ),
                     buildSugarWidget(context),
@@ -112,7 +125,9 @@ class OrderScreen extends StatelessWidget {
   }
 
   Widget buildSliverappBar(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
 
     return SliverAppBar(
       backgroundColor: authbackcolor,
@@ -124,7 +139,11 @@ class OrderScreen extends StatelessWidget {
 
           title: Text(
             _orderController.getdrink.name,
-            style: Theme.of(context).textTheme.headline5?.copyWith(
+            style: Theme
+                .of(context)
+                .textTheme
+                .headline5
+                ?.copyWith(
                 color: Colors.black, backgroundColor: authbackcolor),
           ),
           background: Container(
@@ -139,12 +158,15 @@ class OrderScreen extends StatelessWidget {
   Widget buildAddToCartButton(BuildContext context, Drink drink) {
     return Obx(() {
       Drink? selectedModel = _orderController.cartlist.firstWhereOrNull(
-          (Drink selectedItem) => selectedItem.id == drink.id);
+              (Drink selectedItem) => selectedItem.id == drink.id);
 
       if (selectedModel == null) {
         return Container(
           margin: EdgeInsets.only(top: 10),
-          width: MediaQuery.of(context).size.width * .7,
+          width: MediaQuery
+              .of(context)
+              .size
+              .width * .7,
           child: ElevatedButton(
             onPressed: () {
               _orderController.addItemToCart(drink);
@@ -164,18 +186,25 @@ class OrderScreen extends StatelessWidget {
       children: [
         Container(
           padding: EdgeInsets.symmetric(horizontal: 50),
-          width: MediaQuery.of(context).size.width * .6,
-          height: MediaQuery.of(context).size.height * .05,
+          width: MediaQuery
+              .of(context)
+              .size
+              .width * .6,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height * .05,
           decoration: BoxDecoration(
               color: coffeeback, borderRadius: BorderRadius.circular(5)),
           child: Center(
             child: Row(
               children: [
                 IconButton(
-                  onPressed: () { _orderController
-                      .decreaseQtyOfItemInCart(_orderController.getdrink);
-                   // _orderController.lessQuantity();
-                    },
+                  onPressed: () {
+                    _orderController
+                        .decreaseQtyOfItemInCart(_orderController.getdrink);
+                    // _orderController.lessQuantity();
+                  },
                   icon: Icon(
                     Icons.remove,
                     color: Colors.red,
@@ -188,10 +217,11 @@ class OrderScreen extends StatelessWidget {
                 ),
                 kSizedBox,
                 IconButton(
-                  onPressed: () { _orderController
-                      .increaseQtyOfItemInCart(_orderController.getdrink);
-                   // _orderController.addQuantity();
-                    },
+                  onPressed: () {
+                    _orderController
+                        .increaseQtyOfItemInCart(_orderController.getdrink);
+                    // _orderController.addQuantity();
+                  },
                   icon: Icon(
                     Icons.add,
                     color: Colors.green,
@@ -203,7 +233,10 @@ class OrderScreen extends StatelessWidget {
         ),
         Container(
           margin: EdgeInsets.only(top: 10),
-          width: MediaQuery.of(context).size.width * .6,
+          width: MediaQuery
+              .of(context)
+              .size
+              .width * .6,
           child: ElevatedButton.icon(
             icon: Icon(Icons.delete),
             style: ElevatedButton.styleFrom(
@@ -223,49 +256,61 @@ class OrderScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Obx(
-          () => Expanded(
-            child: RadioListTile(
-              title: FittedBox(
-                  child: Text(
-                'One',
-                style: Theme.of(context).textTheme.headline6,
-              )),
-              value: 1,
-              onChanged: (val) {
-                _orderController.setSelectedSugarCube(val);
-              },
-              groupValue: _orderController.getSelectedSugarCubes,
-            ),
-          ),
-        ),
-        Obx(
-          () => Expanded(
-            child: RadioListTile(
-              title: FittedBox(
-                child:
-                    Text('Two', style: Theme.of(context).textTheme.headline6),
+              () =>
+              Expanded(
+                child: RadioListTile(
+                  title: FittedBox(
+                      child: Text(
+                        'One',
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .headline6,
+                      )),
+                  value: 1,
+                  onChanged: (val) {
+                    _orderController.setSelectedSugarCube(val);
+                  },
+                  groupValue: _orderController.getSelectedSugarCubes,
+                ),
               ),
-              value: 2,
-              onChanged: (val) {
-                _orderController.setSelectedSugarCube(val);
-              },
-              groupValue: _orderController.getSelectedSugarCubes,
-            ),
-          ),
         ),
         Obx(
-          () => Expanded(
-            child: RadioListTile(
-              title: FittedBox(
-                  child: Text('Three',
-                      style: Theme.of(context).textTheme.headline6)),
-              value: 3,
-              onChanged: (val) {
-                _orderController.setSelectedSugarCube(val);
-              },
-              groupValue: _orderController.getSelectedSugarCubes,
-            ),
-          ),
+              () =>
+              Expanded(
+                child: RadioListTile(
+                  title: FittedBox(
+                    child:
+                    Text('Two', style: Theme
+                        .of(context)
+                        .textTheme
+                        .headline6),
+                  ),
+                  value: 2,
+                  onChanged: (val) {
+                    _orderController.setSelectedSugarCube(val);
+                  },
+                  groupValue: _orderController.getSelectedSugarCubes,
+                ),
+              ),
+        ),
+        Obx(
+              () =>
+              Expanded(
+                child: RadioListTile(
+                  title: FittedBox(
+                      child: Text('Three',
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .headline6)),
+                  value: 3,
+                  onChanged: (val) {
+                    _orderController.setSelectedSugarCube(val);
+                  },
+                  groupValue: _orderController.getSelectedSugarCubes,
+                ),
+              ),
         ),
       ],
     );
@@ -276,52 +321,61 @@ class OrderScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Obx(
-          () => Expanded(
-            child: RadioListTile(
-              title: FittedBox(
-                  child: Text(
-                'Small',
-                style: Theme.of(context).textTheme.headline6,
-              )),
-              value: 1,
-              onChanged: (val) {
-                _orderController.setSelectedCupSize(val);
-
-              },
-              groupValue: _orderController.getSelectedCupSize,
-            ),
-          ),
-        ),
-        Obx(
-          () => Expanded(
-            child: RadioListTile(
-              title: FittedBox(
-                child: Text('Medium',
-                    style: Theme.of(context).textTheme.headline6),
+              () =>
+              Expanded(
+                child: RadioListTile(
+                  title: FittedBox(
+                      child: Text(
+                        'Small',
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .headline6,
+                      )),
+                  value: 1,
+                  onChanged: (val) {
+                    _orderController.setSelectedCupSize(val);
+                  },
+                  groupValue: _orderController.getSelectedCupSize,
+                ),
               ),
-              value: 2,
-              onChanged: (val) {
-                _orderController.setSelectedCupSize(val);
-
-              },
-              groupValue: _orderController.getSelectedCupSize,
-            ),
-          ),
         ),
         Obx(
-          () => Expanded(
-            child: RadioListTile(
-              title: FittedBox(
-                  child: Text('Large',
-                      style: Theme.of(context).textTheme.headline6)),
-              value: 3,
-              onChanged: (val) {
-                _orderController.setSelectedCupSize(val);
-
-              },
-              groupValue: _orderController.getSelectedCupSize,
-            ),
-          ),
+              () =>
+              Expanded(
+                child: RadioListTile(
+                  title: FittedBox(
+                    child: Text('Medium',
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .headline6),
+                  ),
+                  value: 2,
+                  onChanged: (val) {
+                    _orderController.setSelectedCupSize(val);
+                  },
+                  groupValue: _orderController.getSelectedCupSize,
+                ),
+              ),
+        ),
+        Obx(
+              () =>
+              Expanded(
+                child: RadioListTile(
+                  title: FittedBox(
+                      child: Text('Large',
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .headline6)),
+                  value: 3,
+                  onChanged: (val) {
+                    _orderController.setSelectedCupSize(val);
+                  },
+                  groupValue: _orderController.getSelectedCupSize,
+                ),
+              ),
         ),
       ],
     );

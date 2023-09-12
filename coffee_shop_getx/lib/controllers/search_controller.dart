@@ -12,7 +12,7 @@ class MySearchController extends GetxController {
         .where(
             (e) => e.name.toLowerCase().contains(userInputValue.toLowerCase()))
         .toList();
-    print("llllllllllllength==${_alldrinkslist.length.toString()}");
+    // print("llllllllllllength==${_alldrinkslist.length.toString()}");
     return searchedfordrinks;
   }
 }

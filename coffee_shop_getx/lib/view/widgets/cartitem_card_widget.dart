@@ -24,7 +24,9 @@ class CartItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     controller = Get.find<CartController>();
     _ordercontroller = Get.find<OrderController>();
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
     return Container(
       height: size.height * .15,
       child: Row(
@@ -55,11 +57,13 @@ class CartItemCard extends StatelessWidget {
                 ),
                 kSizedBox,
                 Text(
-                  "Price: ${NumberFormat.currency(decimalDigits: 0, symbol: '').format(drink.price)} \$",
+                  "Price: ${NumberFormat.currency(decimalDigits: 0, symbol: '')
+                      .format(drink.price)} \$",
                 ),
                 kSizedBox,
                 Text(
-                  "Total • ${NumberFormat.currency(decimalDigits: 0, symbol: '').format(drink.price * drink.qty)} \$",
+                  "Total • ${NumberFormat.currency(decimalDigits: 0, symbol: '')
+                      .format(drink.price * drink.qty)} \$",
                 ),
                 Expanded(child: _buildQty()),
               ],

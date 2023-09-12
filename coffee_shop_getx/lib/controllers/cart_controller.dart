@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get_storage/get_storage.dart';
+
 class CartController extends GetxController {
   RxList<Drink> cart = <Drink>[].obs;
   GetStorage box = GetStorage();
   RxInt grandTotal = 0.obs;
   Map<String, dynamic> userSession = GetStorage().read('auth');
+
   void removeSelectedItemFromCart(int index) {
     cart.removeAt(index);
 
@@ -16,6 +18,7 @@ class CartController extends GetxController {
 
     box.write('items_cart', items_cart);
   }
+
   void increaseQtyOfSelectedItemInCart(int index) {
     cart[index].qty++;
 
@@ -24,6 +27,7 @@ class CartController extends GetxController {
 
     box.write('items_cart', items_cart);
   }
+
   void decreaseQtyOfSelectedItemInCart(int index, Drink drink) {
     if (drink.qty == 1) {
       cart.removeAt(index);
@@ -35,12 +39,14 @@ class CartController extends GetxController {
 
     box.write('items_cart', items_cart);
   }
+
   void calculateGrandTotal() {
     grandTotal.value = 0;
     for (int i = 0; i < cart.length; i++) {
       grandTotal = grandTotal + (cart[i].qty * cart[i].price).round();
     }
   }
+
   void updatingSession() {
     box.listenKey('items_cart', (updatedValue) {
       if (updatedValue is List) {
@@ -50,6 +56,7 @@ class CartController extends GetxController {
       }
     });
   }
+
   void getUpdatedSessionCartData() {
     if (box.hasData('items_cart')) {
       List<dynamic> value = GetStorage().read('items_cart');

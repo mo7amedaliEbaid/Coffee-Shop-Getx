@@ -6,14 +6,14 @@ import '../models/drink_model.dart';
 import '../view/screens/order_screen.dart';
 
 class JuiceController extends GetxController {
-  RxList<Drink>  _juiceList = <Drink>[].obs;
+  RxList<Drink> _juiceList = <Drink>[].obs;
 
   RxList<Drink> get getjuiceList => _juiceList;
 
   @override
   void onInit() {
     super.onInit();
-    List<Drink> list=juicelist;
+    List<Drink> list = juicelist;
     _juiceList.addAll(list);
   }
 

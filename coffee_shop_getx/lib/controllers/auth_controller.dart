@@ -7,7 +7,9 @@ import '../consts/app_constants.dart';
 
 class AuthController extends GetxController {
   GlobalKey<FormState> globalKey = GlobalKey<FormState>();
-  String name = '', email = '', password = '';
+  String name = '',
+      email = '',
+      password = '';
 
   RxBool isObsecure = true.obs;
 
