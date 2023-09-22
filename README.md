@@ -7,7 +7,7 @@ Cart and contact us screens are provided...
 
 - Getx
 
-## Design Pattern
+## Architechture Pattern
 
 - MVC Pattern
 
