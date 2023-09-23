@@ -5,11 +5,7 @@ Cart and contact us screens are provided...
 
 ## State Management
 
-- Getx
-
-## Architechture Pattern
-
-- MVC Pattern
+- Getx 
 
 ## Directory Structure
 
